@@ -54,7 +54,7 @@ ROOT_URLCONF = 'bugiton.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'bugiton.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db' / 'db.sqlite3',
     }
 }
 
@@ -105,11 +105,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False #db에서 ut 사용 안하기 위함
 
 
 # Static files (CSS, JavaScript, Images)
@@ -121,3 +121,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = (BASE_DIR/ 'static',) #static 디렉터리 지정
+MEDIA_URL = '/media/' #미디어 파일에 대한 경로 지정, 사진 업로드에 사용
+MEDIA_ROOT = BASE_DIR / 'media'
