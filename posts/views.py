@@ -4,14 +4,16 @@ from posts.forms import PostCreateForm
 from .models import Post
 
 # Create your views here.
-
 def index(request):
-    post_list = Post.objects.all().order_by('-created_at')
+    return render(request, 'index.html')
+  
+#def index(request):
+#    post_list = Post.objects.all().order_by('-created_at')
     #post_list = Post.objects.filter(writer=request.user)
-    context = {
-        'post_list':post_list
-    }
-    return render(request, 'index.html',context)
+#    context = {
+#        'post_list':post_list
+#    }
+#    return render(request, 'index.html',context)
 
 def post_list_view(request):
     post_list = Post.objects.all()
@@ -73,3 +75,4 @@ def post_delete_view(request, id):
     else:
         post.delete()
         return redirect('index')
+

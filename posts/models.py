@@ -14,3 +14,4 @@ class Post(models.Model):
     like = models.IntegerField(verbose_name='좋아요', default=0)
     category = models.IntegerField(verbose_name='계절',blank=True, null=True)
     #user_id = models.ForeignKey(to=User, on_delete=models.CASCADE,null=True, blank=False)    
+

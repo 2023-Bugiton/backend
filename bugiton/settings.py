@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'accounts',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -106,19 +107,25 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'Asia/Seoul'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = False #db에서 ut 사용 안하기 위함
+USE_TZ = True #db에서 ut 사용 안하기 위함
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR/ 'static'
+] #static 디렉터리 지정
+
+MEDIA_URL = 'media/' #미디어 파일에 대한 경로 지정, 사진 업로드에 사용
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 
 # Default primary key field type
@@ -126,6 +133,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [BASE_DIR/ 'static'] #static 디렉터리 지정
-MEDIA_URL = '/media/' #미디어 파일에 대한 경로 지정, 사진 업로드에 사용
-MEDIA_ROOT = BASE_DIR / 'media'
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]

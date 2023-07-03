@@ -1,0 +1,339 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+#wrap {
+   max-width: 1080px;
+   margin: 0 auto;
+}
+
+#header {
+   position: relative;
+   line-height: 1;
+}
+
+#header .inner {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 110px;
+}
+
+#header .inner .left {
+   display: flex;
+   align-items: center;
+}
+
+#header .inner h1 a {
+   color: #737373;
+}
+
+#header .inner ul.nav {
+   display: flex;
+   align-items: center;
+   gap: 50px;
+   margin-left: 40px;
+   margin-right: 100px;
+}
+
+#header .inner ul.nav li {
+   color: #737373;
+   font-size: 20px;
+   font-family: pretendard;
+}
+
+#header .inner ul.sub_menu li {
+   display: inline-block;
+   color: #737373;
+   font-size: 20px;
+   font-family: pretendard;
+}
+
+#header .inner ul.nav li:hover {
+   cursor: pointer;
+   color: #809675;
+}
+
+#header .inner ul.sub_menu li:hover {
+   cursor: pointer;
+   color: #809675;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+a {
+   text-decoration: none;
+}
+
+ul,
+li,
+ol {
+   list-style: none;
+}
+
+
+html,
+body {
+   width: 1920px;
+   height: 1980px;
+   margin: 0;
+   padding: 0;
+}
+
+.title {
+   color: rgba(34.00000177323818, 34.00000177323818, 34.00000177323818, 1);
+   position: absolute;
+   left: 890px;
+   top: 168px;
+   font-family: Pretendard;
+   font-size: 30px;
+   font-weight: 400;
+   letter-spacing: 0;
+   line-height: 36px;
+
+}
+
+.smalltitle {
+   color: rgba(34.00000177323818, 34.00000177323818, 34.00000177323818, 1);
+   position: absolute;
+   left: 905px;
+   top: 221px;
+   font-family: Pretendard;
+   font-size: 13px;
+   letter-spacing: 0;
+   line-height: 21px;
+   font-weight: 400;
+   font-style: normal;
+
+}
+
+
+
+#main-holder {
+   width: 815px;
+   height: 716px;
+   display: flex;
+   position: absolute;
+   top: 212px;
+   left: 552px;
+   justify-content: center;
+   align-items: center;
+   border-radius: 8px;
+   background: #FFF;
+   box-shadow: 3px 4px 22px 0px rgba(0, 0, 0, 0.10);
+   margin: 0 auto;
+}
+
+#main-holder h1 {
+   position: absolute;
+   top: 112px;
+   left: 369px;
+   color: #737373;
+   text-align: center;
+   font-size: 30px;
+   font-family: Pretendard;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 36px;
+}
+
+#register {
+   position: absolute;
+   top: 449px;
+   left: 630px;
+   color: #737373;
+   text-align: right;
+   font-size: 17px;
+   font-family: "Noto Sans KR", sans-serif;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 20.8px;
+}
+
+#main-holder>input {
+   width: 600px;
+   height: 60px;
+   padding: 0 10px;
+   box-sizing: border-box;
+   margin-bottom: 16px;
+   border-radius: 4px;
+   border: 1px solid #E3E3E3;
+}
+
+#main-holder>input::placeholder {
+   color: #D2D2D2;
+}
+
+#main-holder>input[type="text"] {
+   position: absolute;
+   top: 253px;
+   left: 108px;
+}
+
+#main-holder>input[type="password"] {
+   position: absolute;
+   top: 375px;
+   left: 108px;
+}
+
+#main-holder>button[type="submit"] {
+   width: 351px;
+   height: 60px;
+   flex-shrink: 0;
+   color: #FFF;
+   font-size: 30px;
+   font-family: Pretendard;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 36px;
+   text-align: center;
+   border-radius: 8px;
+   background: #809675;
+   margin-top: 20px;
+   position: absolute;
+   border-color: #809675;
+   border: none;
+   top: 540px;
+   left: 232px;
+}
+
+.blank {
+   width: 24px;
+   height: 24px;
+   position: absolute;
+   left: 859px;
+   top: 18px;
+}
+
+.heart {
+   width: 20px;
+   height: 18.350000381469727px;
+   position: absolute;
+   left: 2px;
+   top: 3px;
+}
+
+.point {
+   background-color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
+   width: 4px;
+   height: 4px;
+   position: relative;
+   left: 500px;
+   top: 1767px;
+   border-top-left-radius: 9999px;
+   border-top-right-radius: 9999px;
+   border-bottom-left-radius: 9999px;
+   border-bottom-right-radius: 9999px;
+}
+
+hr {
+   position: relative;
+   top: 1643px;
+}
+
+.inform1 {
+   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
+   height: 18px;
+   position: relative;
+   left: 452px;
+   top: 1750px;
+   font-family: Pretendard;
+   text-align: left;
+   font-size: 11px;
+   letter-spacing: 0;
+   line-height: px;
+}
+
+.inform2 {
+   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
+   height: 18px;
+   position: relative;
+   left: 472px;
+   top: 1750px;
+   font-family: Pretendard;
+   text-align: left;
+   font-size: 11px;
+}
+
+.inform3 {
+   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
+   height: 18px;
+   position: relative;
+   left: 306px;
+   top: 1780px;
+   font-family: Pretendard;
+   text-align: left;
+   font-size: 11px;
+}
+
+.inform4 {
+   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
+   height: 18px;
+   position: relative;
+   left: 316px;
+   top: 1779px;
+   font-family: Pretendard;
+   text-align: left;
+   font-size: 12px;
+}
+
+.inform5 {
+   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
+   width: 134px;
+   height: 96px;
+   position: absolute;
+   left: 1333px;
+   top: 1863px;
+   font-family: Pretendard;
+   text-align: right;
+   font-size: 11px;
+   letter-spacing: 0;
+}
+
+.copy {
+   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
+   width: 350px;
+   height: 18px;
+   position: relative;
+   left: 87px;
+   top: 1808px;
+   font-family: Pretendard;
+   text-align: left;
+   font-size: 11px;
+   letter-spacing: 0;
+   line-height: px;
+}
+
+#icon1 {
+   width: 24px;
+   height: 24px;
+   position: relative;
+   left: 452px;
+   top: 1688px;
+}
+
+#icon2 {
+   width: 24px;
+   height: 24px;
+   position: relative;
+   left: 488px;
+   top: 1663.5px;
+}
+
+#icon3 {
+   width: 24px;
+   height: 24px;
+   position: relative;
+   left: 524px;
+   top: 1640px;
+}
+
+#main-holder button[type="submit"]:active {
+   background: #668E56;
+   box-shadow: none;
+}
+
+#main-holder button[type="submit"]:hover {
+   cursor: pointer;
+}
