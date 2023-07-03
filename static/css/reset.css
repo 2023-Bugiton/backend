@@ -1,6 +1,6 @@
 /* http://meyerweb.com/eric/tools/css/reset/ 
-	v2.0 | 20110126
-	License: none (public domain)
+   v2.0 | 20110126
+   License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -46,15 +46,14 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+ a, a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
+ }
 
-a, a:hover, a:focus, a:active {
-	text-decoration: none;
-	color: inherit;
+ a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
 
-a {
-color: inherit; /* blue colors for links too */
-text-decoration: inherit; /* no underline */
-}
-
-a { color: inherit; }
+ a { color: inherit; }
