@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/test.css' %}"> -->
+    
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pretendard&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kyobo+Handwriting 2022&display=swap" rel="stylesheet">
+    {% block link %}{% endblock %}
+    
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="container">
+    <div id="wrap">
+        <div id="header">
+            <div class="inner">
+                <div class="left">
+                <h1>
+                    <a href="#">소확행</a>
+                </h1>
+                <ul class="nav">
+                    <li>행복한 소도시</li>
+                    <li>음악</li>
+                    <li>향기</li>
+                    <li>대화</li>
+                </ul>
+            </div>
+            <ul class="sub_menu">
+                {% if request.user.is_authenticated %}
+                    <div>
+                        {{ user.username }}님 환영합니다.
+                    </div>
+                    <li><a href="{% url 'accounts:logout' %}">로그아웃 |</a></li>
+                    <li><span><img src="{% static 'images/Vector.png' %}" alt=""></span>나의 서랍</li>
+                {% else %}
+                    <li><a href="{% url 'accounts:login' %}">로그인 |</a></li>
+                    <li><span><img src="{% static 'images/Vector.png' %}" alt=""></span> 나의 서랍</li>
+                {% endif %}
+            </ul>
+            </div>  
+        </div>
+    </div>
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <hr>
+        <div class="point"></div>
+            <span  class="inform1">이용약관</span>
+            <span  class="inform2">개인정보처리방침</span>
+            <span  class="inform3">상호명: 애프터트립</span>
+            <span  class="inform4">contact@likelion.org</span>
+            <span  class="inform5">PM: 김지은<br>
+                Design: 이자민<br>
+                FE: 이나경, 이세은<br>
+                BE: 김태하, 박태범</span>
+                <span  class="copy">Copyright © 한성대학교 멋쟁이사자처럼 11기 All rights reserved.</span>
+                <div id="icon1">
+                    <img src="{% static 'images/instagram.png' %}" alt="">
+                </div>
+                <div id="icon2">
+                    <img src="{% static 'images/kakao.png' %}" alt="">
+                </div>
+                <div id="icon3">
+                    <img src="{% static 'images/facebook.png' %}" alt="">
+                </div>
+                </div>
+        </div>
+        
+    </footer>
+</div>
+
+</body>
+</html>

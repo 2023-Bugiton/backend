@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block link %}
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block title %}소확행{% endblock %}
+
+{% block content %}
+
+<div class=halfcont>
+    <img src="{% static 'images/banner.png' %}" style="height:700px" ; alt="배너 이미지">
+
+    <span class="banner_title">소소하지만 확실한 행복의 여행, 소확행과 함께 떠나요</span>
+    <span class="banner_title2">작지만 확실한 행복을 주는 여행 큐레이션을 제공합니다, 소확행</span>
+
+
+    <span class="smallcity">행복한 소도시</span>
+    <span class="city_ex">도시를 거닐어보는 것만으로 예술가의 정취를 만나볼 수 있는 소도시로 떠나보세요.</span>
+    <span class="look1">전체 보기 ></span>
+    <img src="{% static 'images/Arrow2.png' %}" id="arrow2" alt="화살표">
+    <div class=picframe1>
+        <div class="picture1"></div>
+        <span class="cityname">프랑스 루아르</span>
+        <span class="name">지은</span>
+        <div class=drawer><span class="draw"><img src="{% static 'images/Vector.png' %}" alt="" width="15px" height="13px">서랍
+                480</span>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <div class=picframe2>
+        <div class="picture2"></div>
+        <span class="cityname">시코쿠</span>
+        <span class="name">지은</span>
+        <div class=drawer><span class="draw"><img src="{% static 'images/Vector.png' %}" alt="" width="15px" height="13px">서랍
+                480</span>
+        </div>
+    </div>
+
+    <div class=picframe3>
+        <div class="picture3"></div>
+        <span class="cityname">앙부아즈</span>
+        <span class="name">지은</span>
+        <div class=drawer><span class="draw"><img src="{% static 'images/Vector.png' %}" alt="" width="15px" height="13px">서랍
+                480</span>
+        </div>
+        <img src="{% static 'images/Arrow1.png' %}" id="arrow1" alt="화살표">
+    </div>
+
+
+
+
+
+    <span class="tripmusic">여행과 음악</span>
+    <span class="music_ex">여행할 때 듣기 좋은 음악으로 가장 많은 추천을 받은 음악들이에요</span>
+    <span class="look2">전체 보기 ></span>
+
+
+    <div class=container2>
+        <div class=frame1>
+            <div class="rect"></div>
+            <span class="songtitle">노래 제목</span><span class="singer">가수</span>
+            <div class=blank>
+                <div class="heart"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></div>
+            </div>
+        </div>
+    </div>
+
+
+    <span class="tripperfume">여행과 향기</span>
+    <span class="per_ex">여행할 때 듣기 좋은 음악으로 가장 많은 추천을 받은 음악들이에요</span>
+
+
+
+    <span class="look3">전체 보기 ></span>
+
+
+    <div class=per_frame>
+        <div class="per1"></div>
+        <div class="per2"></div>
+        <div class="per3"></div>
+        <div class="per4"></div>
+    </div>
+
+    <div class=per_frame2>
+        <div class="per5"></div>
+        <div class="per6"></div>
+    </div>
+
+    <span class="per_logo">낯설고도 설렜던<br>
+        그대와의 첫 여행의 향을 기억해요<br>
+        unfamiliar and thrilling<br>
+        I remember the scent of my first trip with you</span>
+
+
+    <div class="green_fr"></div>
+
+
+    <div class=bottom_cont>
+
+
+    </div><span class="mydrawer">소확행 나만의 서랍</span>
+    <span class="mydraw_ex">예정된 여행이 있으신가요? 또는 아직 정돈되지 않은 여행 후기가 남아있나요?</span>
+    <div class="button1">나의 서랍 바로가기</div>
+
+    <div class=moon_fr>
+        <div class=moon_fr2>
+            <div class="globeimg"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
