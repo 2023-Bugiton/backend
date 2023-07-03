@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{%block title%} 삭제{%endblock %} 
+{% block content %}
+<h1> 삭제 화면 </h1>
+<form action="" method="POST">
+    <p> 삭제되면 데이터 없어짐</p>
+    <p> 삭제하시겠습니까?</p> <br><br>
+
+    <a href="{% url 'index' %}">돌아가기 </a>
+    <input type="submit" value="삭제하기">
+</form>
+<hr>
+{% endblock %}
