@@ -6,7 +6,6 @@ from .models import Post
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
-  
 #def index(request):
 #    post_list = Post.objects.all().order_by('-created_at')
     #post_list = Post.objects.filter(writer=request.user)
@@ -30,7 +29,6 @@ def post_create_form_view(request):
         return render(request, 'posts/post_form2.html',context)
     else:
         form = PostCreateForm(request.POST, request.FILES)
-
         if form.is_valid(): #유효성 검사 true
             Post.objects.create(
                 image=form.cleaned_data['image'],
@@ -39,8 +37,7 @@ def post_create_form_view(request):
                 category=form.cleaned_data['category'],
                 like=form.cleaned_data['like'],
                 title=form.cleaned_data['title'],
-
-                #user_id=request.user,
+                user=request.user
             )
         else: #유효성 검사 false
             print("유효성 검사 실패")
@@ -75,4 +72,21 @@ def post_delete_view(request, id):
     else:
         post.delete()
         return redirect('index')
+    
 
+def post_update_view(request,id):
+    post = Post.objects.get(id=id)
+    if request.method =='GET':
+        context = {
+            'post':post
+        }
+        return render(request, 'posts/post_update.html',context)
+    elif request.method =='POST':
+        new_image = request.FILES.get('image')
+        description = request.POST.get('description')
+        if new_image:
+            post.image.delete()
+            post.image = new_image
+        post.description = description
+        post.save()
+        return redirect('posts:post-detail',post.id)
