@@ -1,8 +1,5 @@
 from django.shortcuts import render, redirect
-# from .forms import UserCreateForm
-from django.contrib.auth.forms import UserCreationForm
-from .forms import SignUpForm
-from django.contrib.auth.forms import AuthenticationForm
+from .forms import SignUpForm, CustomAuthForm
 from django.contrib.auth import login, logout
 # Create your views here.
 
@@ -28,10 +25,10 @@ def login_view(request):
     
     if request.method == 'GET':
         # 로그인 HTML 응답
-        return render(request, 'accounts/login.html', { 'form' : AuthenticationForm() })
+        return render(request, 'accounts/login.html', { 'form' : CustomAuthForm() })
     else:
         # 데이터 유효성 검사
-        form = AuthenticationForm(request, data=request.POST)
+        form = CustomAuthForm(request, data=request.POST)
         if form.is_valid():
             # 비즈니스 로직 처리 - 로그인 처리
             login(request, form.user_cache)

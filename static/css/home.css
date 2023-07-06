@@ -1,6 +1,6 @@
 
 * {margin:0; padding:0;}
-a {text-decoration: none;}
+a {text-decoration: none; color: inherit; /* 링크의 색상 제거 */}
 ul,li,ol {list-style: none;}
 
 #wrap {max-width: 1080px;margin: 0 auto;}
