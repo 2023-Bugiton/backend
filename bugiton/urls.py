@@ -32,6 +32,7 @@ urlpatterns = [
     path('posts/', include('posts.urls', namespace='posts')),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls',namespace='accounts')),
+    path('perfumes/', include('perfumes.urls', namespace='perfumes')),
 ]
 
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
