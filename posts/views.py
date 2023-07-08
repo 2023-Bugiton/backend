@@ -16,6 +16,7 @@ def index(request):
 
 def post_list_view(request):
     post_list = Post.objects.all()
+    print(post_list)
     #post_list = Post.objects.filter(user_id = request.user)
     context ={
         'post_list': post_list

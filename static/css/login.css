@@ -1,183 +1,167 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+/* @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css); */
 
-#wrap {
-   max-width: 1080px;
-   margin: 0 auto;
+@font-face {
+   font-family: 'KyoboHandwriting2022khn';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KyoboHandwriting2022khn.woff2') format('woff2');
+   font-weight: normal;
+   font-style: normal;
 }
 
-#header {
-   position: relative;
-   line-height: 1;
-}
-
-#header .inner {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   height: 110px;
-}
-
-#header .inner .left {
-   display: flex;
-   align-items: center;
-}
-
-#header .inner h1 a {
-   color: #737373;
-}
-
-#header .inner ul.nav {
-   display: flex;
-   align-items: center;
-   gap: 50px;
-   margin-left: 40px;
-   margin-right: 100px;
-}
-
-#header .inner ul.nav li {
-   color: #737373;
-   font-size: 20px;
-   font-family: pretendard;
-}
-
-#header .inner ul.sub_menu li {
-   display: inline-block;
-   color: #737373;
-   font-size: 20px;
-   font-family: pretendard;
-}
-
-#header .inner ul.nav li:hover {
-   cursor: pointer;
-   color: #809675;
-}
-
-#header .inner ul.sub_menu li:hover {
-   cursor: pointer;
-   color: #809675;
-}
-
-* {
+body {
    margin: 0;
    padding: 0;
+}
+
+a:link {
+   color: #737373;
+   text-decoration: none;
+}
+
+a {
+   color: #737373;
+   text-decoration: none;
+   color: inherit;
+}
+
+a.green:hover {
+   color: #809675;
+   text-decoration: none;
 }
 
 a {
    text-decoration: none;
 }
 
-ul,
-li,
-ol {
-   list-style: none;
-}
+/*nav*/
 
-
-html,
-body {
-   width: 1920px;
-   height: 1980px;
-   margin: 0;
-   padding: 0;
-}
-
-.title {
-   color: rgba(34.00000177323818, 34.00000177323818, 34.00000177323818, 1);
-   position: absolute;
-   left: 890px;
-   top: 168px;
-   font-family: Pretendard;
-   font-size: 30px;
-   font-weight: 400;
-   letter-spacing: 0;
-   line-height: 36px;
-
-}
-
-.smalltitle {
-   color: rgba(34.00000177323818, 34.00000177323818, 34.00000177323818, 1);
-   position: absolute;
-   left: 905px;
-   top: 221px;
-   font-family: Pretendard;
-   font-size: 13px;
-   letter-spacing: 0;
-   line-height: 21px;
-   font-weight: 400;
-   font-style: normal;
-
-}
-
-
-
-#main-holder {
-   width: 815px;
-   height: 716px;
+nav {
    display: flex;
-   position: absolute;
-   top: 212px;
-   left: 552px;
+   height: 10vh;
    justify-content: center;
    align-items: center;
+   margin: 0 auto;
+   /* 가운데 정렬을 위해 추가 */
+   max-width: 100rem;
+}
+
+nav div {
+   flex-grow: 0.3;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+
+   color: var(--main-bl, #737373);
+   font-size: 20px;
+   font-family: Pretendard;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+}
+
+.navContainer1>div {
+   flex-grow: 0.3;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+.navContainer1 {
+   margin: 0 auto;
+   max-width: 80rem;
+   justify-content: center;
+}
+
+.navContainer2 {
+   margin: 0 auto;
+   max-width: 20rem;
+}
+
+.navContainer2>div {
+   flex-grow: 0.03;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+#navTitle {
+   color: var(--main-bl, #737373);
+   text-align: center;
+   font-size: 32px;
+   font-family: 'KyoboHandwriting2022khn';
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+}
+
+#navTitle:hover {
+   cursor: pointer;
+   color: #737373;
+}
+
+
+.container {
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 112px;
+}
+
+.main-holder {
+   text-align: center;
+   margin: 0 auto;
+   width: 815px;
+   height: 716px;
+
    border-radius: 8px;
    background: #FFF;
    box-shadow: 3px 4px 22px 0px rgba(0, 0, 0, 0.10);
-   margin: 0 auto;
 }
 
-#main-holder h1 {
-   position: absolute;
-   top: 112px;
-   left: 369px;
+.login-header {
+   margin: 100px 0;
    color: #737373;
-   text-align: center;
    font-size: 30px;
    font-family: Pretendard;
    font-style: normal;
    font-weight: 400;
-   line-height: 36px;
+
 }
 
-#register {
-   position: absolute;
-   top: 449px;
-   left: 630px;
+.register {
    color: #737373;
    text-align: right;
    font-size: 17px;
-   font-family: "Noto Sans KR", sans-serif;
+   font-family: "Noto Sans KR";
    font-style: normal;
    font-weight: 400;
    line-height: 20.8px;
+   display: block;
+   margin-top: 10px;
+   margin-right: 105px;
 }
 
-#main-holder>input {
+.main-holder>input {
    width: 600px;
    height: 60px;
    padding: 0 10px;
    box-sizing: border-box;
-   margin-bottom: 16px;
    border-radius: 4px;
    border: 1px solid #E3E3E3;
 }
 
-#main-holder>input::placeholder {
+.main-holder>input::placeholder {
    color: #D2D2D2;
 }
 
-#main-holder>input[type="text"] {
-   position: absolute;
-   top: 253px;
-   left: 108px;
+.main-holder>input[type="text"] {
+
+   margin-bottom: 60px;
 }
 
-#main-holder>input[type="password"] {
-   position: absolute;
-   top: 375px;
-   left: 108px;
-}
-
-#main-holder>button[type="submit"] {
+.main-holder>button[type="submit"] {
    width: 351px;
    height: 60px;
    flex-shrink: 0;
@@ -190,150 +174,91 @@ body {
    text-align: center;
    border-radius: 8px;
    background: #809675;
-   margin-top: 20px;
-   position: absolute;
+   margin-top: 100px;
    border-color: #809675;
    border: none;
-   top: 540px;
-   left: 232px;
 }
 
-.blank {
-   width: 24px;
-   height: 24px;
-   position: absolute;
-   left: 859px;
-   top: 18px;
+.main-holder>button[type="submit"]:hover {
+   cursor: pointer;
 }
 
-.heart {
-   width: 20px;
-   height: 18.350000381469727px;
-   position: absolute;
-   left: 2px;
-   top: 3px;
+/*footer*/
+
+.footer {
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   margin-top: 168px;
+   margin-bottom: 42px;
+   flex-direction: row;
+   border-top: 1px solid #B5B5B5;
+
+   color: #737373;
+   font-size: 11px;
+   font-family: Pretendard;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 18px;
+}
+
+
+.footerContainer1 {
+   justify-content: flex-start;
+   margin-top: 45px;
+}
+
+.line {
+   margin-bottom: 45px;
+}
+
+
+.icon {
+   gap: 12px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   flex-direction: row;
+}
+
+.icon:hover {
+   cursor: pointer;
+}
+
+.inform1 {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 24px;
+   flex-direction: row;
+   margin-bottom: 12px;
+}
+
+.inform2 {
+   margin-bottom: 12px;
 }
 
 .point {
    background-color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
    width: 4px;
    height: 4px;
-   position: relative;
-   left: 500px;
-   top: 1767px;
    border-top-left-radius: 9999px;
    border-top-right-radius: 9999px;
    border-bottom-left-radius: 9999px;
    border-bottom-right-radius: 9999px;
 }
 
-hr {
-   position: relative;
-   top: 1643px;
-}
-
-.inform1 {
-   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
-   height: 18px;
-   position: relative;
-   left: 452px;
-   top: 1750px;
-   font-family: Pretendard;
-   text-align: left;
-   font-size: 11px;
-   letter-spacing: 0;
-   line-height: px;
-}
-
-.inform2 {
-   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
-   height: 18px;
-   position: relative;
-   left: 472px;
-   top: 1750px;
-   font-family: Pretendard;
-   text-align: left;
-   font-size: 11px;
-}
-
-.inform3 {
-   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
-   height: 18px;
-   position: relative;
-   left: 306px;
-   top: 1780px;
-   font-family: Pretendard;
-   text-align: left;
-   font-size: 11px;
-}
-
-.inform4 {
-   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
-   height: 18px;
-   position: relative;
-   left: 316px;
-   top: 1779px;
-   font-family: Pretendard;
-   text-align: left;
-   font-size: 12px;
+.footerContainer2 {
+   margin-bottom: 0px;
 }
 
 .inform5 {
-   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
-   width: 134px;
-   height: 96px;
-   position: absolute;
-   left: 1333px;
-   top: 1863px;
-   font-family: Pretendard;
+   margin-bottom: 0px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   gap: 12px;
+   margin-left: 452px;
    text-align: right;
-   font-size: 11px;
-   letter-spacing: 0;
-}
-
-.copy {
-   color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
-   width: 350px;
-   height: 18px;
-   position: relative;
-   left: 87px;
-   top: 1808px;
-   font-family: Pretendard;
-   text-align: left;
-   font-size: 11px;
-   letter-spacing: 0;
-   line-height: px;
-}
-
-#icon1 {
-   width: 24px;
-   height: 24px;
-   position: relative;
-   left: 452px;
-   top: 1688px;
-}
-
-#icon2 {
-   width: 24px;
-   height: 24px;
-   position: relative;
-   left: 488px;
-   top: 1663.5px;
-}
-
-#icon3 {
-   width: 24px;
-   height: 24px;
-   position: relative;
-   left: 524px;
-   top: 1640px;
-}
-
-#main-holder button[type="submit"]:active {
-   background: #668E56;
-   box-shadow: none;
-}
-
-#main-holder button[type="submit"]:hover {
-   cursor: pointer;
+   margin-right:
 }
