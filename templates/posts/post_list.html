@@ -1,12 +1,113 @@
 {% extends 'base.html' %}
 {% load static %}
-{%block title%} 홈{%endblock %} 
+
+{% block link %}
+<script type="text/javascript" src="{% static 'js/spring.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/spring.css' %}">
+<style>
+    .picFrame {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* 한 줄에 4개의 열을 생성 */
+        grid-gap: 10px;
+        /* 열과 행 사이의 간격을 조정하고자 하는 경우 여기에 작성 */
+    }
+</style>
+{% endblock %}
+
+{%block title%} 사계절의 소도시{%endblock %}
+
 {% block content %}
-<main>
-    <div class="card-list">
-        {% for post in post_list%}
-            {% include 'mixin/posts/post_card.html' with detail=False %}
-        {% endfor %}
+<section class="container">
+    <div class="pageTitle">사계절의 소도시</div>
+    <div class="subTitle">새로운 계절에 눈 뜨고 싶은 그대를 위하여</div>
+
+    <div class="button">
+        <a href="#">
+            <div id="spring">Spring</div>
+            <a href="#">
+                <div id="summer">Summer</div>
+            </a>
+            <a href="#"></a>
+            <div id="autumn">Autumn</div>
+        </a>
+        <a href="#"></a>
+        <div id="winter">Winter</div></a>
     </div>
-</main>
+
+    <div class="pageTitle2">다시 돌아온, 봄</div>
+    <div class="subTitle2">봄이 찾아온다면, 눈부신 햇살이 어깨를 가볍게 스쳐 지나갈 것입니다. <br>
+        그리고 그 따스함은 마음에도 온기를 전해줄 것입니다. <br>
+        작고 작은 꽃들이 흙 속에서 비는 물방울을 받아 피어나면, <br>
+        세상은 한껏 활기를 띠게 됩니다. 나무들은 새싹을 내고, <br>
+        들은 푸른 잔디로 덮이며, 꽃들은 다채롭게 피어나기 시작합니다.
+    </div>
+
+    <!-- <div class="options"> -->
+    <form class="options" id="myForm" action="">
+        <select id="itemSelect" onchange="moveurl(this.value);">
+            <option value="/posts">서랍 저장순</option>
+            <option value="/posts?order=recent">최신순</option>
+            <option value="/posts?order=popular">인기순</option>
+        </select>
+    </form>
+    <!-- </div> -->
+
+    <div class="myPics">
+        <div class="picFrame">
+
+            {% for post in post_list %}
+            <a class="postFrame" href="{% url 'posts:post-detail' post.id %}">
+                <div class="frame">
+                    <div class="pic">
+                        {% if post.image %}
+                        <img src="{{post.image.url}}" width="250" height="320" alt="카드이미지">
+                        {% else %}
+                        <img src="http://via.placeholder.com/300x300" width="250" height="320" alt="카드이미지">
+                        {%endif%}
+                    </div>
+                    <div class="explain">
+                        <div class="picEx">
+                            <div class="picTitle">{{ post.title }}</div>
+                            <div class="drawer"><img src="{% static 'images/Vector.png' %}" alt="">서랍 480</div>
+                        </div>
+                        <div class="author">{{ post.user }}</div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            <!-- <a href="#">
+                <div class="frame">
+                    <div class="pic">
+                        <img src="{% static 'images/IMG_48602.png' %}" alt="">
+                    </div>
+                    <div class="explain">
+                        <div class="picEx">
+                            <div class="picTitle">따뜻한 봄날의 제주</div>
+                            <div class="drawer"><img src="images/Vector.png" alt="">서랍 480</div>
+                        </div>
+                        <div class="author">지은</div>
+                    </div>
+                </div>
+            </a> -->
+        </div>
+    </div>
+
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // 동적으로 선택할 옵션 값
+        var urlParams = new URLSearchParams(window.location.search);
+        var optionValue = urlParams.get('order');
+        optionValue = '/posts?order=' + optionValue
+        // option 태그를 돌면서 동적으로 선택된 옵션에 selected 속성 추가
+        $('#itemSelect option').each(function () {
+            if ($(this).val() === optionValue) {
+                $(this).prop('selected', true);
+            }
+        });
+    });
+</script>
 {% endblock %}

@@ -15,13 +15,31 @@ def index(request):
 #    return render(request, 'index.html',context)
 
 def post_list_view(request):
-    post_list = Post.objects.all()
-    print(post_list)
+    print(request.GET.get('order'))
+    if request.GET.get('order') == 'recent':
+        
+        post_list = Post.objects.all().order_by('-created_at')
     #post_list = Post.objects.filter(user_id = request.user)
-    context ={
-        'post_list': post_list
-    }
-    return render(request, 'posts/post_list.html', context)
+        context ={
+            'post_list': post_list
+        }
+        return render(request, 'posts/post_list.html', context)
+    
+    elif request.GET.get('order') == 'popular':
+        print('popular 성공')
+        post_list = Post.objects.all().order_by('-like')
+    #post_list = Post.objects.filter(user_id = request.user)
+        context ={
+            'post_list': post_list
+        }
+        return render(request, 'posts/post_list.html', context)
+    else:
+        post_list = Post.objects.all()
+    #post_list = Post.objects.filter(user_id = request.user)
+        context ={
+            'post_list': post_list
+        }
+        return render(request, 'posts/post_list.html', context)
 
 def post_create_form_view(request):
     if request.method =='GET':
