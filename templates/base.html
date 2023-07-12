@@ -1,39 +1,52 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pretendard&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kyobo+Handwriting 2022&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
     <link rel="stylesheet" href="{% static 'css/basic.css' %}">
-    <link href="">
-    {% block link %}{% endblock %}
     
-    <title>{% block title %}{% endblock %}</title>
+    {% block link %}{% endblock %}
+
+    <title>{% block title %}{% endblock %} | 소확행</title>
 </head>
+
 <body>
     <nav>
         <div class="navContainer1">
             <div id="navTitle"><a href="/">소확행</a></div>
             <div id="city"><a href="{% url 'posts:post-list' %}" class="green">행복한 소도시</a></div>
-            <div id="music"><a href="/songPage/" class="green">음악</a></div>
-            <div id="perfume"><a href="/perfumePage/index.html" class="green">향기</a></div>
+            <div id="music"><a href="{% url 'musics:music-list' %}" class="green">음악</a></div>
+            <div id="perfume"><a href="{% url 'perfumes:perfume-list' %}" class="green">향기</a></div>
             <div id="conv"><a href="/convPage/index.html" class="green">대화</a></div>
         </div>
 
         <div class="navContainer2">
             {% if request.user.is_authenticated %}
-            <div>
+            <div style="font-size: 12px; margin-right: 10px;">
+                {% if user.first_name %}
+                {{ user.first_name }}님 환영합니다.
+                {% else %}
                 {{ user.username }}님 환영합니다.
+                {% endif %}
             </div>
-            <a href="{% url 'accounts:logout' %}">로그아웃</a>
+            <a href="{% url 'accounts:logout' %}">로그아웃 </a>
+            | <div id="myPage"><img src="{% static 'images/Vector.png' %}" alt=""><a href="{% url 'posts:myPage' user.id %}"
+                class="green">나의 서랍</a></div>
             {% else %}
-            <div id="login"><a href="{% url 'accounts:login' %}" class="green">로그인 |</a></div>
-            <div id="myPage"><img src="{% static 'images/Vector.png' %}" alt=""><a href="/springPage/index.html" class="green">나의 서랍</a></div>
+            <div id="login"><a href="{% url 'accounts:login' %}" class="green">로그인 </a></div>
+            | <div id="myPage"><img src="{% static 'images/Vector.png' %}" alt=""><a href="{% url 'accounts:login'%}"
+                class="green">나의 서랍</a></div>
             {% endif %}
+            
         </div>
     </nav>
     <div>
@@ -44,7 +57,7 @@
     <footer class="footer">
         <div class="footerContainer1">
             <div class="icon">
-                
+
                 <div id="icon1">
                     <a href="#"><img src="{% static 'images/instagram.png' %}" alt=""></a>
                 </div>
@@ -55,31 +68,32 @@
                     <a href="#"><img src="{% static 'images/facebook.png' %}" alt=""></a>
                 </div>
             </div>
-        
-        
+
+
             <div class="inform1">
                 <span>이용약관&nbsp;</span>
                 <div class="point"></div>
                 <span>&nbsp;개인정보처리방침</span>
             </div>
-        
+
             <div class="inform2">
                 <span>상호명: 애프터트립&nbsp;&nbsp;</span>
-                <span  class="inform4">contact@likelion.org</span>
+                <span class="inform4">contact@likelion.org</span>
             </div>
 
-            <div  class="copy"><span>Copyright © 한성대학교 멋쟁이사자처럼 11기 All rights reserved.</span></div>
+            <div class="copy"><span>Copyright © 한성대학교 멋쟁이사자처럼 11기 All rights reserved.</span></div>
         </div>
 
         <div class="footerContainer2">
-            <span  class="inform5">
-            <br><br><br><br>
-            PM: 김지은<br>
-            Design: 이자민<br>
-            FE: 이나경, 이세은<br>
-            BE: 김태하, 박태범</span>
+            <span class="inform5">
+                <br><br><br><br>
+                PM: 김지은<br>
+                Design: 이자민<br>
+                FE: 이나경, 이세은<br>
+                BE: 김태하, 박태범</span>
         </div>
 
     </footer>
 </body>
+
 </html>

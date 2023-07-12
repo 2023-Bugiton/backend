@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from perfumes.views import perfume_list_view
 
 
-app_name='posts' #html 에서 url을 name으로 설정할때 필요 posts:post-create 등
+app_name='perfumes' #html 에서 url을 name으로 설정할때 필요 posts:post-create 등
 
 urlpatterns=[
     path('', perfume_list_view, name='perfume-list'),

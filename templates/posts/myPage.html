@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<script type="text/javascript" src="{% static 'js/myPage.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/myPage.css' %}">
+{% endblock %}
+
+{%block title%}나의 서랍{%endblock %}
+
+{% block content %}
+
+<section class="container">
+    <div class="drawerContainer">
+        <div class="content">
+            <div class="drawerName">지은의 서랍장</div>
+            오늘도 한 칸씩 채워가는 나의 애프터트립<br>
+            영원히 기억될 것 같던 순간도 시간이 지나면 조금씩 잊혀지기 마련이에요.<br>
+            가장 생생한 나의 여행을 위해 오늘도 서랍 한 칸을 열어볼까요?<br>
+        </div>
+        <a href="{% url 'posts:post-create' %}">
+            <div class="myLog"><span>내 서랍장에 기록하기</span></div>
+        </a>
+    </div>
+
+    <div class="picContainer">
+        <div class="pic"><img src="{% static 'images/IMG_5335 1.png' %}" alt=""></div>
+        <div class="explain">
+            <div class="buttons">
+                <div class="myName">
+                    {% if user.first_name %}
+                        {{ user.first_name }}
+                    {% else %}
+                        {{ user.username }}
+                    {% endif %}
+                </div>
+                <div class="miniIcon">
+                    <div class="write"><a href="#"><img src="{% static 'images/jam_write.png' %}" alt=""></a></div>
+                    <div class="settings"><a href="#"><img src="{% static 'images/uil_setting.png' %}" alt=""></a></div>
+                </div>
+            </div>
+            <div class="content">
+                향기로운 여행을 좋아해요<br>
+                해변에서는 소금냄새와 바다향이 우리를 맞이하고,<br>
+                숲속에서는 푸른 나뭇잎과 푸른 풀의 향기가 우리를 감싸주어요.<br>
+                이러한 향기는 여행지에서 느끼는 감정을<br>
+                더욱 특별하고 의미있는 순간으로 만들어줍니다<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="introContainer">
+        오늘도 한 칸씩 채워가는 나의 애프터트립<br>
+        영원히 기억될 것 같던 순간도 시간이 지나면 조금씩 잊혀지기 마련이에요.<br>
+        가장 생생한 나의 여행을 위해 오늘도 서랍 한 칸을 열어볼까요?<br>
+    </div>
+
+    <div class="option">국내 | 국외</div>
+
+    <div class="picContainer2">
+        <div class="pic2"><img src="{% static 'images/Rectangle 20.png' %}" alt=""></div>
+        <div class="content2">
+            <div class="trv1">총 여행일 | <span class="hov">2,108</span>일</div>
+            <div class="trv2">국내 | <span class="hov">576</span>일</div>
+            <div class="trv3">국외 |<span class="hov"> 1,532</span>일</div>
+            <div class="trv4">서랍장 | <span class="hov">37</span>개</div>
+        </div>
+    </div>
+    </div>
+
+    
+
+    <div class="button">
+        <a href="#">
+            <div id="spring">Spring</div>
+        </a>
+        <a href="#">
+            <div id="summer">Summer</div>
+        </a>
+        <a href="#">
+            <div id="autumn">Autumn</div>
+        </a>
+        <a href="#">
+            <div id="winter">Winter</div>
+        </a>
+    </div>
+
+
+    <div class="pageTitle">다시 돌아온, 봄</div>
+    <div class="subTitle">봄이 찾아온다면, 눈부신 햇살이 어깨를 가볍게 스쳐 지나갈 것입니다. <br>
+        그리고 그 따스함은 마음에도 온기를 전해줄 것입니다. <br>
+        작고 작은 꽃들이 흙 속에서 비는 물방울을 받아 피어나면, <br>
+        세상은 한껏 활기를 띠게 됩니다. 나무들은 새싹을 내고, <br>
+        들은 푸른 잔디로 덮이며, 꽃들은 다채롭게 피어나기 시작합니다.
+    </div>
+
+    <form class="options" id="myForm" action="">
+        <select id="itemSelect" onchange="moveurl(this.value);">
+            <option value="">서랍 저장순</option>
+            <option value="?order=recent">최신순</option>
+            <option value="?order=popular">인기순</option>
+        </select>
+    </form>
+
+    <div class="myPics">
+        <div class="picFrame">
+            <a href="#">
+                <div class="frame">
+                    <div class="trvPic">
+                        <img src="{% static 'images/IMG_1.png' %}" alt="">
+                    </div>
+                    <div class="imgExplain">
+                        <div class="picTitle">일본 요코하마 여행기</div>
+                        <div class="author">지은</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="picFrame">
+            <a href="#">
+                <div class="frame">
+                    <div class="trvPic">
+                        <img src="{% static 'images/IMG_1.png' %}" alt="">
+                    </div>
+                    <div class="imgExplain">
+                        <div class="picTitle">일본 요코하마 여행기</div>
+                        <div class="author">지은</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="picFrame">
+            <a href="#">
+                <div class="frame">
+                    <div class="trvPic">
+                        <img src="{% static 'images/IMG_1.png' %}" alt="">
+                    </div>
+                    <div class="imgExplain">
+                        <div class="picTitle">일본 요코하마 여행기</div>
+                        <div class="author">지은</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="picFrame">
+            <a href="#">
+                <div class="frame">
+                    <div class="trvPic">
+                        <img src="{% static 'images/IMG_1.png' %}" alt="">
+                    </div>
+                    <div class="imgExplain">
+                        <div class="picTitle">일본 요코하마 여행기</div>
+                        <div class="author">지은</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // 동적으로 선택할 옵션 값
+        var urlParams = new URLSearchParams(window.location.search);
+        var optionValue = urlParams.get('order');
+        optionValue = '/myPage?order=' + optionValue
+        // option 태그를 돌면서 동적으로 선택된 옵션에 selected 속성 추가
+        $('#itemSelect option').each(function () {
+            if ($(this).val() === optionValue) {
+                $(this).prop('selected', true);
+            }
+        });
+    });
+</script>
+{% endblock %}

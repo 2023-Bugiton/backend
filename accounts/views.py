@@ -19,7 +19,7 @@ def signup_view(request):
         if form.is_valid():
             #회원가입 처리
             instance = form.save()
-            return redirect('index')
+            return redirect('accounts:login')
         else:
             #리다이렉트
             return redirect('accounts:signup')

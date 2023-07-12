@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<script type="text/javascript" src="{% static 'js/create.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/create.css' %}">
+{% endblock %}
+
+{%block title%}서랍 생성{%endblock %}
+
+{% block content %}
+
+<section class="container">
+    <!-- <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %} -->
+        <div class="pageTitle"><strong>After trip</strong></div>
+        <div class="subTitle"><img src="{% static 'images/Polygon 1.png' %}"></div>
+
+        <div class="main-holder">
+            <div class="main-hold">
+                {{ form.title }}
+            </div>
+            
+
+            <div class="plan-holder">
+                <!-- <input type="text" name="LOCATION" placeholder="여행 위치를 작성해주세요"> -->
+                {{ form.location }}
+                <div class="miniIcon">
+                    <div class="write"><a href="/mytwentysummer/index.html"><span class="complete">완료</span></a></div>
+                </div>
+                <div class="yeardate">
+                    <select class="box" name="year1">
+                        <option disabled selected>2023</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+
+
+                    </select> <select class="box" name="month1">
+                        <option disabled selected>07</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+
+                    </select> <select class="box" name="day1">
+                        <option disabled selected>26</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                </div>
+                </select>
+                <span class="em">부터</span>
+                <select class="box" name="year2">
+                    <option disabled selected>2023</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+
+
+                </select> <select class="box" name="month2">
+                    <option disabled selected>07</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+
+                </select> <select class="box" name="day2">
+                    <option disabled selected>31</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+            </div>
+        </div>
+        </div>
+        <!-- 메인홀더 -->
+
+        </select>
+        <span class="em">까지</span>
+        </div>
+        {{ form.cost }}
+
+        <div class="button">
+            <a class="link" href="?category=0">
+                <div id="spring">Spring</div>
+            </a>
+            <a class="link" href="?category=1">
+                <div id="summer">Summer</div>
+            </a>
+            <a class="link" href="?category=2">
+                <div id="autumn">Autumn</div>
+            </a>
+            <a class="link" href="?category=3">
+                <div id="winter">Winter</div>
+            </a>
+        </div>
+
+
+
+
+        <div class="detail-holder">
+
+            <div class="inputfile"><strong>사진</strong></div>
+            <div class="file">
+                <!-- <input type="file" name="filename1"> -->
+                {{ form.image }}
+            </div>
+            <div class="review"><strong>글</strong></div>
+            <!-- <textarea rows="4" name="review" placeholder="서랍장을 소개해주세요"></textarea> -->
+            {{ form.description }}
+            <div class="star"><strong>나만의 평점</strong></div>
+            <div class="star-cont">
+                <div class="stars"><img src="{% static 'images/ph_star-bold.png' %}" alt="별" onclick="replace{% static 'image(this)"></div>
+                <div class="stars"><img src="{% static 'images/ph_star-bold.png' %}" alt="별" onclick="replace{% static 'image(this)"></div>
+                <div class="stars"><img src="{% static 'images/ph_star-bold.png' %}" alt="별" onclick="replace{% static 'image(this)"></div>
+                <div class="stars"><img src="{% static 'images/ph_star-bold.png' %}" alt="별" onclick="replace{% static 'image(this)"></div>
+                <div class="stars"><img src="{% static 'images/ph_star-bold.png' %}" alt="별" onclick="replace{% static 'image(this)"></div>
+            </div>
+            <!-- <a href="#">
+                <div class="button1">추가하기</div>
+            </a> -->
+            <button type="submit" class="button1">추가하기</button>
+            
+            
+        </div>
+    <!-- </form> -->
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var categoryLink = document.getElementsByClassName('link');
+        var form = document.getElementById('my-form');
+        
+        categoryLink.addEventListener('click', function(event) {
+            event.preventDefault();
+        });
+    });
+</script>
+{% endblock %}

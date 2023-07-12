@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>{{ chatroom.name }}</h2>
+<div id="chatroom-messages">
+    {% for message in chatroom.chatmessage_set.all %}
+    <p><strong>{{ message.sender }}:</strong> {{ message.message }}</p>
+    {% empty %}
+    <p>No messages yet.</p>
+    {% endfor %}
+</div>
+<form id="chatroom-form">
+    {% csrf_token %}
+    <input type="text" id="message-input">
+    <button type="submit">Send</button>
+</form>
+
+<script src="{% static 'js/chatroom.js' %}"></script>
+{% endblock %}

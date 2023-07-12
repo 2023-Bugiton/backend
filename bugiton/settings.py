@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'accounts',
     'users',
     'perfumes',
+    'musics',
+    'chats',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +141,6 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True

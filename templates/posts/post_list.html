@@ -69,7 +69,7 @@
                     <div class="explain">
                         <div class="picEx">
                             <div class="picTitle">{{ post.title }}</div>
-                            <div class="drawer"><img src="{% static 'images/Vector.png' %}" alt="">서랍 480</div>
+                            <div class="drawer"><img src="{% static 'images/Vector.png' %}" alt="">서랍 {{ post.user.post_set.all.count }}</div>
                         </div>
                         <div class="author">{{ post.user }}</div>
                     </div>

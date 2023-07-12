@@ -1,57 +1,44 @@
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>소확행</title>
-        <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
-        <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Kyobo+Handwriting 2022&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="script.js"></script>
-    </head>
+{% extends 'base.html' %}
+{% load static %}
 
-    <body>
-        <nav>
-            <div class="navContainer1">
-                <div id="navTitle"><a href="/mainPage/index.html">소확행</a></div>
-                <div id="city"><a href="/springPage/" class="green">행복한 소도시</a></div>
-                <div id="music"><a href="/songPage/" class="green">음악</a></div>
-                <div id="perfume"><a href="/perfumePage/index.html" class="green">향기</a></div>
-                <div id="conv"><a href="/convPage/index.html" class="green">대화</a></div>
-            </div>
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/perfume.css' %}">
+{% endblock %}
 
-            <div class="navContainer2">
-                <div id="login"><a href="/loginPage/index.html" class="green">로그인 |</a></div>
-                <div id="myPage"><img src="images/Vector.png" alt=""><a href="/springPage/index.html" class="green">나의 서랍</a></div>
-            </div>
-        </nav>
+{% block title %}향기{% endblock %}
 
-    <section class="container">
-        <div class="pageTitle">여행과 향기</div>
-        <div class="subTitle">여행의 추억이 담긴 향</div>
+{% block content %}
 
-        <div class="button">
-            <a href="#"><div id="spring">Spring</div></a>
-            <a href="#"><div id="summer">Summer</div></a>
-            <a href="#"><div id="autumn">Autumn</div></a>
-            <a href="#"><div id="winter">Winter</div></a>
-        </div>
+<section class="container">
+    <div class="pageTitle">여행과 향기</div>
+    <div class="subTitle">여행의 추억이 담긴 향</div>
 
-        <div class="picContainer1">
-            <div class="perfume">
-                {% for perfume in perfumes %}
-                    <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}">
-                {% endfor %}
-            </div>
-            <div class="perfume"><img src="images/img_4860_24.png" alt=""></div>
-            <div class="perfume"><img src="images/img_4860_25.png" alt=""></div>
-            <div class="perfume"><img src="images/img_4860_30.png" alt=""></div>
-        </div>
+    <div class="button">
+        <a href="#">
+            <div id="spring">Spring</div>
+        </a>
+        <a href="#">
+            <div id="summer">Summer</div>
+        </a>
+        <a href="#">
+            <div id="autumn">Autumn</div>
+        </a>
+        <a href="#">
+            <div id="winter">Winter</div>
+        </a>
+    </div>
 
-        <div class="picContainer2">
-            <div class="pictures">
-            <div class="perfume"><img src="images/img_4860_24.png" alt=""></div>
-            <div class="perfume"><img src="images/img_4860_25.png" alt=""></div>
+    <div class="picContainer1">
+        <div class="perfume"><img src="{% static 'images/img_4860_29.png' %}" alt=""></div>
+        <div class="perfume"><img src="{% static 'images/img_4860_24.png' %}" alt=""></div>
+        <div class="perfume"><img src="{% static 'images/img_4860_25.png' %}" alt=""></div>
+        <div class="perfume"><img src="{% static 'images/img_4860_30.png' %}" alt=""></div>
+    </div>
+
+    <div class="picContainer2">
+        <div class="pictures">
+            <div class="perfume"><img src="{% static 'images/img_4860_24.png' %}" alt=""></div>
+            <div class="perfume"><img src="{% static 'images/img_4860_25.png' %}" alt=""></div>
         </div>
         <div class="explain1">
             <br><br><br>낯설고도 설렜던<br>
@@ -59,61 +46,22 @@
             unfamiliar and thrilling<br>
             I remember the scent of my first trip with you<br>
         </div>
-        </div>
+    </div>
 
-        <div class="picContainer2">
-            <div class="explain2">
+    <div class="picContainer2">
+
+        <div class="explain2">
             <br><br><br>낯설고도 설렜던<br>
             그대와의 첫 여행의 향을 기억해요<br>
             unfamiliar and thrilling<br>
             I remember the scent of my first trip with you<br>
-            </div>
-
-            <div class="pictures">
-            <div class="perfume"><img src="images/img_4860_24.png" alt=""></div>
-            <div class="perfume"><img src="images/img_4860_25.png" alt=""></div>
-        </div>
-        </div>
-    </section>
-    
-    <footer class="footer">
-        <div class="footerContainer1">
-            <div class="icon">
-                <div id="icon1">
-                    <a href="#"><img src="images/instagram.png" alt=""></a>
-                </div>
-                <div id="icon2">
-                    <a href="#"><img src="images/kakao.png" alt=""></a>
-                </div>
-                <div id="icon3">
-                    <a href="#"><img src="images/facebook.png" alt=""></a>
-                </div>
-            </div>
-        
-        
-            <div class="inform1">
-                <span>이용약관&nbsp;</span>
-                <div class="point"></div>
-                <span>&nbsp;개인정보처리방침</span>
-            </div>
-        
-            <div class="inform2">
-                <span>상호명: 애프터트립&nbsp;&nbsp;</span>
-                <span  class="inform4">contact@likelion.org</span>
-            </div>
-
-            <div  class="copy"><span>Copyright © 한성대학교 멋쟁이사자처럼 11기 All rights reserved.</span></div>
         </div>
 
-        <div class="footerContainer2">
-            <span  class="inform5">
-            <br><br><br><br>
-            PM: 김지은<br>
-            Design: 이자민<br>
-            FE: 이나경, 이세은<br>
-            BE: 김태하, 박태범</span>
+        <div class="pictures">
+            <div class="perfume"><img src="{% static 'images/img_4860_24.png' %}" alt=""></div>
+            <div class="perfume"><img src="{% static 'images/img_4860_25.png' %}" alt=""></div>
         </div>
-    </footer>
-    </body>
-</html>
-    
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/music.css' %}">
+<script type="text/javascript" src="{% static 'js/music.js' %}"></script>
+<style>
+    img {
+        overflow-clip-margin: content-box;
+        overflow: clip;
+    }
+</style>
+{% endblock %}
+
+{% block title %}음악{% endblock %}
+
+{% block content %}
+
+<section class="container">
+    <div class="pageTitle">여행과 음악</div>
+    <div class="subTitle">새로운 계절에 눈 뜨고 싶은 그대를 위하여</div>
+
+    <div class="button">
+        <a href="#">
+            <div id="spring">Spring</div>
+        </a>
+        <a href="#">
+            <div id="summer">Summer</div>
+        </a>
+        <a href="#">
+            <div id="autumn">Autumn</div>
+        </a>
+        <a href="#">
+            <div id="winter">Winter</div>
+        </a>
+    </div>
+
+    <form class="options" id="myForm" action="">
+        <select id="itemSelect" onchange="moveurl(this.value);">
+            <option value="/musics?order=popular">인기순</option>
+            <option value="/musics?order=recent">최신순</option>
+            <option value="#">저장 많은 순</option>
+        </select>
+    </form>
+    <div class="albumPic">
+        {% for music in music_title_list %}
+        <div class="pic"><img src="{{ music.image.url }}" alt="사진1"></div>
+        {% endfor %}
+        <!-- <div class="pic"><img src="{% static 'images/music1.png' %}" alt="사진1"></div>
+        <div class="pic"><img src="{% static 'images/music2.png' %}" alt="사진1"></div>
+        <div class="pic"><img src="{% static 'images/music3.png' %}" alt="사진1"></div>
+        <div class="pic"><img src="{% static 'images/music4.png' %}" alt="사진1"></div> -->
+    </div>
+
+    
+
+        {% for music in music_list %}
+        <div class="songList">
+            <div class=listFrame>
+                <!-- <div class="rect" style="background: url({{ music.image.url }});"></div> -->
+                <img class="rect" src="{{ music.image.url }}" alt="">
+                <div class="songtitle">{{ music.title }}</div>
+                <div class="singer">{{ music.singer }}</div>
+                <div class="like"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // 동적으로 선택할 옵션 값
+        var urlParams = new URLSearchParams(window.location.search);
+        var optionValue = urlParams.get('order');
+        optionValue = '/musics?order=' + optionValue
+        // option 태그를 돌면서 동적으로 선택된 옵션에 selected 속성 추가
+        $('#itemSelect option').each(function () {
+            if ($(this).val() === optionValue) {
+                $(this).prop('selected', true);
+            }
+        });
+    });
+</script>
+
+{% endblock %}

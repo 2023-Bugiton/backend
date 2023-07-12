@@ -2,114 +2,142 @@
 {% load static %}
 
 {% block link %}
-    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'owlcarousel/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'owlcarousel/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<style>
+    .owl-carousel {
+        max-width: 1000px;
+    }
+</style>
 {% endblock %}
 
 {% block title %}소확행{% endblock %}
 
 {% block content %}
-
-<div class=halfcont>
-    <img src="{% static 'images/banner.png' %}" style="height:700px" ; alt="배너 이미지">
-
-    <span class="banner_title">소소하지만 확실한 행복의 여행, 소확행과 함께 떠나요</span>
-    <span class="banner_title2">작지만 확실한 행복을 주는 여행 큐레이션을 제공합니다, 소확행</span>
-
-
-    <span class="smallcity">행복한 소도시</span>
-    <span class="city_ex">도시를 거닐어보는 것만으로 예술가의 정취를 만나볼 수 있는 소도시로 떠나보세요.</span>
-    <span class="look1">전체 보기 ></span>
-    <img src="{% static 'images/Arrow2.png' %}" id="arrow2" alt="화살표">
-    <div class=picframe1>
-        <div class="picture1"></div>
-        <span class="cityname">프랑스 루아르</span>
-        <span class="name">지은</span>
-        <div class=drawer><span class="draw"><img src="{% static 'images/Vector.png' %}" alt="" width="15px" height="13px">서랍
-                480</span>
-            <div class="shape"></div>
-        </div>
-    </div>
-
-    <div class=picframe2>
-        <div class="picture2"></div>
-        <span class="cityname">시코쿠</span>
-        <span class="name">지은</span>
-        <div class=drawer><span class="draw"><img src="{% static 'images/Vector.png' %}" alt="" width="15px" height="13px">서랍
-                480</span>
-        </div>
-    </div>
-
-    <div class=picframe3>
-        <div class="picture3"></div>
-        <span class="cityname">앙부아즈</span>
-        <span class="name">지은</span>
-        <div class=drawer><span class="draw"><img src="{% static 'images/Vector.png' %}" alt="" width="15px" height="13px">서랍
-                480</span>
-        </div>
-        <img src="{% static 'images/Arrow1.png' %}" id="arrow1" alt="화살표">
-    </div>
-
-
-
-
-
-    <span class="tripmusic">여행과 음악</span>
-    <span class="music_ex">여행할 때 듣기 좋은 음악으로 가장 많은 추천을 받은 음악들이에요</span>
-    <span class="look2">전체 보기 ></span>
-
-
-    <div class=container2>
-        <div class=frame1>
-            <div class="rect"></div>
-            <span class="songtitle">노래 제목</span><span class="singer">가수</span>
-            <div class=blank>
-                <div class="heart"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></div>
-            </div>
-        </div>
-    </div>
-
-
-    <span class="tripperfume">여행과 향기</span>
-    <span class="per_ex">여행할 때 듣기 좋은 음악으로 가장 많은 추천을 받은 음악들이에요</span>
-
-
-
-    <span class="look3">전체 보기 ></span>
-
-
-    <div class=per_frame>
-        <div class="per1"></div>
-        <div class="per2"></div>
-        <div class="per3"></div>
-        <div class="per4"></div>
-    </div>
-
-    <div class=per_frame2>
-        <div class="per5"></div>
-        <div class="per6"></div>
-    </div>
-
-    <span class="per_logo">낯설고도 설렜던<br>
-        그대와의 첫 여행의 향을 기억해요<br>
-        unfamiliar and thrilling<br>
-        I remember the scent of my first trip with you</span>
-
-
-    <div class="green_fr"></div>
-
-
-    <div class=bottom_cont>
-
-
-    </div><span class="mydrawer">소확행 나만의 서랍</span>
-    <span class="mydraw_ex">예정된 여행이 있으신가요? 또는 아직 정돈되지 않은 여행 후기가 남아있나요?</span>
-    <div class="button1">나의 서랍 바로가기</div>
-
-    <div class=moon_fr>
-        <div class=moon_fr2>
-            <div class="globeimg"></div>
-        </div>
+<div class="banner">
+    <div class="picture">
+        <div class="logo1">소소하지만 확실한 행복의 여행, 소확행과 함께 떠나요</div>
+        <div class="logo2">작지만 확실한 행복을 주는 여행 큐레이션을 제공합니다, 소확행</div>
     </div>
 </div>
+
+<section class="gallery">
+    <div class="galleryTitle">행복한 소도시</div>
+    <div class="gallerySub">
+        <span class="sub">도시를 거닐어보는 것만으로 예술가의 정취를 만나볼 수 있는 소도시로 떠나보세요.</span>
+        <div class="show"><a href="{% url 'posts:post-list' %}">전체보기 ></a> </div>
+    </div>
+
+    <div class="myPics">
+        <img style="cursor: pointer;" src="{% static 'images/Arrow2.png' %}" id="Arrow2">
+        <div id="owl-carousel" class="owl-carousel owl-theme picFrame">
+            {% for post in post_list %}
+            <a class="postFrame" href="{% url 'posts:post-detail' post.id %}">
+                <div class="frame">
+                    <div class="pic">
+                        {% if post.image %}
+                        <img src="{{post.image.url}}" width="250" height="320" alt="카드이미지">
+                        {% else %}
+                        <img src="http://via.placeholder.com/300x300" width="250" height="320" alt="카드이미지">
+                        {%endif%}
+                    </div>
+                    <div class="explain">
+                        <div class="picEx">
+                            <div class="picTitle">{{ post.title }}</div>
+                            <div class="drawer"><img src="{% static 'images/Vector.png' %}" style="width: auto;" alt="">서랍 {{ post.user.post_set.all.count }}</div>
+                        </div>
+                        <div class="author">{{ post.user }}</div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+
+        </div>
+        <img style="cursor: pointer;" src="{% static 'images/Arrow1.png' %}" id="Arrow1">
+
+    </div>
+
+
+    <div class="galleryTitle">여행과 음악</div>
+    <div class="gallerySub">
+        <span class="sub">여행할 때 듣기 좋은 음악으로 가장 많은 추천을 받은 음악들이에요.</span>
+        <div class="show"><a href="{% url 'musics:music-list' %}">전체보기 ></a></div>
+    </div>
+
+
+    
+        {% for music in music_list %}
+        <div class="songList">
+            <div class=listFrame>
+                <div class="rect" style="background: url({{ music.image.url }});"></div>
+                <div class="songtitle">{{ music.title }}</div>
+                <div class="singer">{{ music.singer }}</div>
+                <div class="like"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></div>
+            </div>
+        </div>
+        {% endfor %}
+    
+
+    <div class="galleryTitle">여행과 향기</div>
+    <div class="gallerySub">
+        <span class="sub">여행에서 맡은 특별한 향기들로 여행의 추억을 오래 간직해보세요.</span>
+        <div class="show"><a href="{% url 'perfumes:perfume-list' %}">전체보기 ></a> </div>
+    </div>
+
+    <div class="picContainer1">
+        <div class="perfume"><img src="{% static 'images/img_4860_29.png' %}" alt=""></div>
+        <div class="perfume"><img src="{% static 'images/img_4860_24.png' %}" alt=""></div>
+        <div class="perfume"><img src="{% static 'images/img_4860_25.png' %}" alt=""></div>
+        <div class="perfume"><img src="{% static 'images/img_4860_30.png' %}" alt=""></div>
+    </div>
+
+    <div class="picContainer2">
+        <div class="pictures">
+            <div class="perfume"><img src="{% static 'images/img_4860_24.png' %}" alt=""></div>
+            <div class="perfume"><img src="{% static 'images/img_4860_25.png' %}" alt=""></div>
+        </div>
+        <div class="explain1">
+            <br><br><br>낯설고도 설렜던<br>
+            그대와의 첫 여행의 향을 기억해요<br>
+            unfamiliar and thrilling<br>
+            I remember the scent of my first trip with you<br>
+        </div>
+    </div>
+
+
+</section>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script src="{% static 'owlcarousel/owl.carousel.min.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        var owl = $('#owl-carousel');
+        owl.owlCarousel({
+            items : 3,
+            loop:true,
+            margin: 30,
+            nav:true,
+            //Auto height
+            dots : false, // Pagination 표시 여부
+            
+        });
+
+        // $('.customNextBtn').click(function() {
+        //     owl.trigger('next.owl.carousel');
+        // })
+
+        // $('.customPrevBtn').click(function() {
+        //     owl.trigger('prev.owl.carousel', [300]);
+        // })
+        $('#Arrow1').click(function() {
+        owl.trigger('next.owl.carousel');
+        })
+        
+        $('#Arrow2').click(function() {
+            owl.trigger('prev.owl.carousel', [300]);
+        })
+    });
+</script>
 {% endblock %}
