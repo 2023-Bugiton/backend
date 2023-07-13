@@ -176,6 +176,20 @@ def post_mySave_view(request):
     }
 
     return render(request, 'posts/mySave.html', context)
+    
+def mySave_season_view(request):
+    season = int(request.GET.get('season'))
+    # 해당 시즌에 대한 게시물을 가져옴
+    
+    post_list = Save.objects.filter(user=request.user, post__category=season).select_related('post')
+    print(post_list)
+
+    context = {
+        'post_list': post_list
+        }
+    return render(request, 'posts/mySave_season.html', context)
+
+
 
 @login_required
 def post_save_view(request, id):
@@ -197,6 +211,8 @@ def post_save_view(request, id):
         return redirect('posts:post-list')
         
     return redirect('accouts:login')
+
+
 
 @login_required
 def my_page_view(request, id):
@@ -242,9 +258,10 @@ def season_view(request):
         season = int(request.GET.get('season'))
         # 해당 시즌에 대한 게시물을 가져옴
         post_list = Post.objects.filter(category=season)
-        print(post_list)
+        
         context = {'post_list': post_list}
         return render(request, 'posts/test.html', context)
+
     
 
 def sort_view(request):

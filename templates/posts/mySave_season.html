@@ -1,0 +1,23 @@
+{% load static %}
+
+{% for save in post_list %}
+{% if save %}
+    <div class="picFrame">
+        <a href="{% url 'posts:post-detail' save.post.id %}">
+            <div class="frame">
+                <div class="trvPic">
+                    {% if save.post.image %}
+                    <img src="{{save.post.image.url}}" width="250" height="320" alt="카드이미지">
+                    {% else %}
+                    <img src="http://via.placeholder.com/300x300" width="250" height="320" alt="카드이미지">
+                    {%endif%}
+                </div>
+                <div class="imgExplain">
+                    <div class="picTitle">{{ save.post.title }}</div>
+                    <div class="author">{{ save.post.user }}</div>
+                </div>
+            </div>
+        </a>
+    </div>
+{% endif %}
+{% endfor %}

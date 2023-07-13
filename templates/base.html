@@ -26,7 +26,7 @@
             <div id="city"><a href="{% url 'posts:post-list' %}" class="green">행복한 소도시</a></div>
             <div id="music"><a href="{% url 'musics:music-list' %}" class="green">음악</a></div>
             <div id="perfume"><a href="{% url 'perfumes:perfume-list' %}" class="green">향기</a></div>
-            <div id="conv"><a href="/convPage/index.html" class="green">대화</a></div>
+            <div id="conv"><a href="{% url 'chats:chatroom-list' %}" class="green">대화</a></div>
             <div id="save"><a href="{% url 'posts:post-locker' %}" class="green">보관함</a></div>
         </div>
 

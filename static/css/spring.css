@@ -416,6 +416,9 @@ label {
 
 /*myPics*/
 
+.postFrame {
+    margin: auto 25px;
+}
 
 .myPics {
     display: flex;

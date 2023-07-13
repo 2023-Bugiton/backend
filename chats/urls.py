@@ -1,11 +1,12 @@
 from django.urls import path
 
-from chats import views
+from chats.views import create_chatroom, chatroom_list, chatroom_detail, send_message
 
 app_name = 'chats'
 
 urlpatterns = [
-    path("", views.chat_view, name="chat"),  # /chat/으로 넘어오면 chat_view 함수 실행
-    path("<str:room_name>/", views.room_view, name="room"),  # /chat/room_number/ 으로 넘어오면 room 함수 실행
-    path("api/<int:user_id>", views.api_create_room, name="api_create_room"),
+    path('', chatroom_list, name='chatroom-list'),
+    path('create/', create_chatroom, name='create-chatroom'),
+    path('<int:id>/', chatroom_detail, name='chatroom-detail'),
+    path('<int:room_id>/send-message/', send_message, name='send-message'),
 ]
