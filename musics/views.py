@@ -54,3 +54,20 @@ def music_like_view(request, id):
         return redirect('musics:music-list')
         
     return redirect('accouts:login')
+
+def music_season_view(request):
+    music_title_list = Music.objects.all()[:4]
+    season = int(request.GET.get('season'))
+    # 해당 시즌에 대한 게시물을 가져옴
+    music_list = Music.objects.filter(category=season)
+    if request.user.is_authenticated:
+        for music in music_list:
+            music.is_liked = music.favorite_set.filter(user=request.user).exists()
+
+    
+    context = {
+        'music_list': music_list,
+        'music_title_list' : music_title_list,
+    }
+
+    return render(request, 'musics/music_season.html', context)

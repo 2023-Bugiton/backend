@@ -20,24 +20,24 @@
     <div class="pageTitle">여행과 음악</div>
     <div class="subTitle">새로운 계절에 눈 뜨고 싶은 그대를 위하여</div>
 
-    <div class="button">
+    <form id="season-form" class="button">
         <label for="spring">
-            <input type="radio" id="spring" name="season" value="spring"  onclick="redirectToPage('#')" >
+            <input type="radio" id="spring" name="season" value=0>
             <div>Spring</div>
         </label>
         <label for="summer">
-            <input type="radio" id="summer" name="season" value="summer"  onclick="redirectToPage('#')">
+            <input type="radio" id="summer" name="season" value=1>
             <div>Summer</div>
         </label>
         <label for="autumn">
-            <input type="radio" id="autumn" name="season" value="autumn"  onclick="redirectToPage('#')">
+            <input type="radio" id="autumn" name="season" value=2>
             <div>Autumn</div>
         </label>
         <label for="winter">
-            <input type="radio" id="winter" name="season" value="winter"  onclick="redirectToPage('#')">
+            <input type="radio" id="winter" name="season" value=3>
             <div>Winter</div>
         </label>
-    </div>
+    </form>
 
     <form class="options" id="myForm" action="">
         <select id="itemSelect" onchange="moveurl(this.value);">
@@ -50,18 +50,15 @@
         {% for music in music_title_list %}
         <div class="pic"><img src="{{ music.image.url }}" alt="사진1"></div>
         {% endfor %}
-        <!-- <div class="pic"><img src="{% static 'images/music1.png' %}" alt="사진1"></div>
-        <div class="pic"><img src="{% static 'images/music2.png' %}" alt="사진1"></div>
-        <div class="pic"><img src="{% static 'images/music3.png' %}" alt="사진1"></div>
-        <div class="pic"><img src="{% static 'images/music4.png' %}" alt="사진1"></div> -->
     </div>
 
     
-
+    <div class="music_frame">
         {% for music in music_list %}
+        {% include 'posts/test.html' only %}
         <div class="songList">
             <div class=listFrame>
-                <!-- <div class="rect" style="background: url({{ music.image.url }});"></div> -->
+                
                 <img class="rect" src="{{ music.image.url }}" alt="">
                 <div class="songtitle">{{ music.title }}</div>
                 <div class="singer">{{ music.singer }}</div>
@@ -78,7 +75,7 @@
             </div>
         </div>
         {% endfor %}
-
+    </div>
 
     
 </section>
@@ -86,17 +83,31 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
-        // 동적으로 선택할 옵션 값
-        var urlParams = new URLSearchParams(window.location.search);
-        var optionValue = urlParams.get('order');
-        optionValue = '/musics?order=' + optionValue
-        // option 태그를 돌면서 동적으로 선택된 옵션에 selected 속성 추가
-        $('#itemSelect option').each(function () {
-            if ($(this).val() === optionValue) {
-                $(this).prop('selected', true);
-            }
+
+        $('#season-form input').change(function () {
+            
+            var selectedSeason = $('input[name="season"]:checked').val();
+            getPostsBySeason(selectedSeason);
         });
     });
+
+    function getPostsBySeason(season) {
+        
+        $.ajax({
+            url: '/musics/season',  // 해당 시즌 게시물을 가져오는 URL
+            method: 'GET',
+            data: { 'season': season },  // 요청 데이터
+            dataType: 'html',
+            success: function(response) {
+                $('.music_frame').html(response);
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+
+    
 </script>
 
 {% endblock %}

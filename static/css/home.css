@@ -172,7 +172,7 @@ nav div {
 .picture2 img {
    width: 380px;
    height: 225px;
-   object-fit: contain;
+   object-fit: cover;
    margin-left: 1100px;
    
 }

@@ -1,0 +1,21 @@
+{% load static %}
+{% for music in music_list %}
+<div class="songList">
+    <div class=listFrame>
+        
+        <img class="rect" src="{{ music.image.url }}" alt="">
+        <div class="songtitle">{{ music.title }}</div>
+        <div class="singer">{{ music.singer }}</div>
+        {% if user.is_authenticated %}
+            {% if music.is_liked %}
+                <a href="{% url 'musics:music-like' music.id %}" class="like"><img src="{% static 'images/mdi_heart.png' %}" alt=""></a>
+            {% else %}
+                <a href="{% url 'musics:music-like' music.id %}" class="like"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></a>
+            {% endif %}
+        {% else %}
+            <a href="{% url 'accounts:login' %}"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></a>
+        {% endif %}
+        
+    </div>
+</div>
+{% endfor %}
