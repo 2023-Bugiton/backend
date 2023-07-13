@@ -95,6 +95,10 @@ nav div {
   color: #737373;
 }
 
+#perfume{
+  color:#809675; 
+}
+
 /*pageTitle*/
 
 .pageTitle {
@@ -283,6 +287,7 @@ nav div {
   box-shadow: 3px 4px 12px 0px rgba(0, 0, 0, 0.10);
   width: 234.02px;
   height: 230px;
+  object-fit :contain;
 }
 
 /*footer*/

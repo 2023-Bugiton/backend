@@ -35,9 +35,15 @@
         <img src="{{ post.image.url }}" alt="">
         <div class="content">
             <div class="author">by {{ post.user }}</div>
-            <a href="/myPage/index.html"><div class="vecIcon"><img src="{% static 'images/Vector.png' %}" alt=""></div></a>
+            {% if user.is_authenticated %}
+                    <a href="{% url 'posts:post-save' post.id %}"><div class="vecIcon"><img src="{% static 'images/Vector.png' %}" alt=""></div></a>
+            {% else %}
+                    <a href="{% url 'accounts:login' %}"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></a>
+            {% endif %}
         </div>
     </div>
+
+    
 
     <div class="diary">
         {{ post.description }}

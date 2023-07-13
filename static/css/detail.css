@@ -286,6 +286,7 @@ nav div {
 .pic>img {
   width: 476px;
   height: 265px;
+  object-fit :contain;
 }
 
 .pic {

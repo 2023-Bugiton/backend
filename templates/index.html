@@ -47,7 +47,8 @@
                     <div class="explain">
                         <div class="picEx">
                             <div class="picTitle">{{ post.title }}</div>
-                            <div class="drawer"><img src="{% static 'images/Vector.png' %}" style="width: auto;" alt="">서랍 {{ post.user.post_set.all.count }}</div>
+                            <div class="drawer"><img src="{% static 'images/Vector.png' %}" style="width: auto;"
+                                    alt="">서랍 {{ post.user.post_set.all.count }}</div>
                         </div>
                         <div class="author">{{ post.user }}</div>
                     </div>
@@ -68,26 +69,28 @@
     </div>
 
 
-    
-        {% for music in music_list %}
-        <div class="songList">
-            <div class=listFrame>
-                <img class="rect" src="{{ music.image.url }}" alt="">
-                <div class="songtitle">{{ music.title }}</div>
-                <div class="singer">{{ music.singer }}</div>
-                {% if user.is_authenticated %}
-                    {% if music.is_liked %}
-                        <a href="{% url 'musics:music-like' music.id %}" class="like"><img src="{% static 'images/mdi_heart.png' %}" alt=""></a>
-                    {% else %}
-                        <a href="{% url 'musics:music-like' music.id %}" class="like"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></a>
-                    {% endif %}
+
+    {% for music in music_list %}
+    <div class="songList">
+        <div class=listFrame>
+            <img class="rect" src="{{ music.image.url }}" alt="">
+            <div class="songtitle">{{ music.title }}</div>
+            <div class="singer">{{ music.singer }}</div>
+            {% if user.is_authenticated %}
+                {% if music.is_liked %}
+                <a href="{% url 'posts:music-like' music.id %}" class="like"><img src="{% static 'images/mdi_heart.png' %}"
+                        alt=""></a>
                 {% else %}
-                    <a href="{% url 'accounts:login' %}"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></a>
+                <a href="{% url 'posts:music-like' music.id %}" class="like"><img
+                        src="{% static 'images/mdi_heart-outline.png' %}" alt=""></a>
                 {% endif %}
-            </div>
+            {% else %}
+            <a href="{% url 'accounts:login' %}"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></a>
+            {% endif %}
         </div>
-        {% endfor %}
-    
+    </div>
+    {% endfor %}
+
 
     <div class="galleryTitle">여행과 향기</div>
     <div class="gallerySub">
@@ -114,22 +117,37 @@
             I remember the scent of my first trip with you<br>
         </div>
     </div>
+    <div class="banner2">
+        <div class="logo3">소확행 나만의 서랍</div>
+        <div class="logo4">예정된 여행이 있으신가요?<br>
+            또는 아직 정돈되지 않은 여행 후기가 남아있나요?</div>
+        <a href="/myPage/index.html">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'posts:myPage' user.id %}" class="myLog"><span>나의 서랍 바로가기</span></a>
+            {% else %}
+                <a href="{% url 'accounts:login' %}" class="myLog"><span>나의 서랍 바로가기</span></a>
+            {% endif %}
+        </a>
+        <div class="picture2"><img src="{% static 'images/globe.png' %}" alt="보름달">
+        </div>
+    </div>
 
 
 </section>
-<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
 <script src="{% static 'owlcarousel/owl.carousel.min.js' %}"></script>
 <script>
     $(document).ready(function () {
         var owl = $('#owl-carousel');
         owl.owlCarousel({
-            items : 3,
-            loop:true,
+            items: 3,
+            loop: true,
             margin: 30,
-            nav:true,
+            nav: true,
             //Auto height
-            dots : false, // Pagination 표시 여부
-            
+            dots: false, // Pagination 표시 여부
+
         });
 
         // $('.customNextBtn').click(function() {
@@ -139,11 +157,11 @@
         // $('.customPrevBtn').click(function() {
         //     owl.trigger('prev.owl.carousel', [300]);
         // })
-        $('#Arrow1').click(function() {
-        owl.trigger('next.owl.carousel');
+        $('#Arrow1').click(function () {
+            owl.trigger('next.owl.carousel');
         })
-        
-        $('#Arrow2').click(function() {
+
+        $('#Arrow2').click(function () {
             owl.trigger('prev.owl.carousel', [300]);
         })
     });

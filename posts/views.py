@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from posts.forms import PostCreateForm
-from .models import Post
+from .models import Post, Save
 from perfumes.models import Perfume
 from musics.models import Music, Favorite
 from datetime import datetime
@@ -66,7 +66,7 @@ def post_list_view(request):
     context ={
         'post_list': post_list
     }
-    print(post_list)
+    
     return render(request, 'posts/post_list.html', context)
 
 @login_required
@@ -94,7 +94,7 @@ def post_create_form_view(request):
         
         location = request.POST.get('location', False)
         result = check_location(location)
-        print(result)
+        
         if form.is_valid(): #유효성 검사 true
             Post.objects.create(
                 title=form.cleaned_data['title'],
@@ -167,6 +167,36 @@ def post_update_view(request,id):
         post.save()
         return redirect('posts:post-detail',post.id)
 
+@login_required
+def post_mySave_view(request):
+    post_list = Save.objects.filter(user=request.user).select_related('post__user')
+    
+    context = {
+        'post_list' : post_list
+    }
+
+    return render(request, 'posts/mySave.html', context)
+
+@login_required
+def post_save_view(request, id):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, id=id)
+        user = request.user
+
+    # 이미 좋아요를 눌렀는지 확인
+        if Save.objects.filter(user=user, post=post).exists():
+            # 이미 좋아요를 눌렀을 경우 처리
+            favorite = Save.objects.get(user=user, post=post)
+            favorite.delete()
+
+        else:
+            # 중개 모델을 생성하고 저장
+            like = Save(user=user, post=post)
+            like.save()
+
+        return redirect('posts:post-list')
+        
+    return redirect('accouts:login')
 
 @login_required
 def my_page_view(request, id):
@@ -183,14 +213,28 @@ def my_page_view(request, id):
     # 특정 사용자의 국외(date=1)의 date 총합
     international_total = Post.objects.filter(user_id=id, where=1).aggregate(total=Sum('date'))['total']
         
+    if request.GET.get('order') == 'recent':
+            post_list = Post.objects.filter(user_id=id).order_by('-created_at')
+        
+        # elif request.GET.get('order') == 'popular':
+        #     post_list = Post.objects.all().order_by('-like')
+
+    else:
+        post_list = Post.objects.filter(user_id=id)
+    
+
     context ={
         'user': user,
         'post_count' : post_count,
         'date_sum' : date_sum,
         'domestic_total' : domestic_total,
-        'international_total' : international_total
+        'international_total' : international_total,
+        'post_list': post_list,
     }
     return render(request, 'posts/myPage.html', context)
+
+
+
 
 
 def season_view(request):

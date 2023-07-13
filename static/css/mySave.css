@@ -1,8 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
@@ -11,6 +6,11 @@ body {
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KyoboHandwriting2022khn.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 a:link {
@@ -32,7 +32,6 @@ a.green:hover {
 a {
   text-decoration: none;
 }
-
 
 /*nav*/
 
@@ -102,8 +101,15 @@ nav div {
 }
 
 
-/*pageTitle*/
+.container {
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 112px;
+}
+
+/*pageTitle*/
 .pageTitle {
   display: flex;
   width: 200px;
@@ -112,145 +118,45 @@ nav div {
   align-items: center;
   margin: 0 auto;
   max-width: 100rem;
-  margin-top: 98px;
+  margin-top: 32px;
 
-  color: #222;
+  color: #999;
   text-align: center;
-  font-size: 30px;
-  font-family: Pretendard;
+  font-size: 20px;
+  font-family: "Noto Sans KR";
   font-style: normal;
   font-weight: 400;
-  line-height: 36px;
+  line-height: 20.8px;
 }
 
 /*subTitle*/
-
 .subTitle {
   display: flex;
-  width: 300px;
-  height: 21px;
+  width: 431px;
+  height: 101px;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   max-width: 100rem;
-  margin-top: 17px;
+  margin-top: 21px;
 
-  color: #737373;
+  color: #CCC;
   text-align: center;
   font-size: 13px;
-  font-family: Pretendard;
+  font-family: "Noto Sans KR";
   font-style: normal;
   font-weight: 400;
-  line-height: 21px;
-}
-
-/*button*/
-
-.button {
-
-  display: flex;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
-  margin-top: 38px;
-}
-
-.button div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#spring {
-  font-family: "Noto Sans KR";
-  font-style: normal;
-  color: #333;
-  width: 112px;
-  height: 40px;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 22px;
-  background-color: #FCFAF6;
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-#spring:hover {
-  background-color: #FAC8C8;
-  color: #FFF;
-  cursor: pointer;
-}
-
-
-#summer {
-  font-family: "Noto Sans KR";
-  font-style: normal;
-  color: #333;
-  width: 112px;
-  height: 40px;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 22px;
-  background-color: #FCFAF6;
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-#summer:hover {
-  background-color: #C4E4E9;
-  color: #FFF;
-  cursor: pointer;
-}
-
-#autumn {
-  font-family: "Noto Sans KR";
-  font-style: normal;
-  color: #333;
-  width: 112px;
-  height: 40px;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 22px;
-  background-color: #FCFAF6;
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-#autumn:hover {
-  background-color: #DCC8AA;
-  color: #FFF;
-  cursor: pointer;
-}
-
-#winter {
-  font-family: "Noto Sans KR";
-  font-style: normal;
-  color: #333;
-  width: 112px;
-  height: 40px;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 22px;
-  background-color: #FCFAF6;
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-#winter:hover {
-  background-color: #CBC6CF;
-  color: #FFF;
-  cursor: pointer;
+  line-height: 20.02px;
+  letter-spacing: 0.4px;
 }
 
 /*option*/
 
 .options {
-  margin-top: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 오른쪽 정렬로 수정 */
-  margin-left: 730px;
+  margin-left: 970px;
 
   color: #222;
   text-align: right;
@@ -275,107 +181,70 @@ nav div {
   outline: none;
 }
 
-
-
-/*album picture*/
-.albumPic {
-  margin-top: 73px;
+/*myPics*/
+.myPics {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 30px;
-  margin-bottom: 80px;
+  margin-top: 38px;
+  align-items: center;
+  gap: 21px;
 }
 
-.albumPic>img {
-  width: 200px;
-  height: 200px;
-  object-fit :contain;
+.picFrame {
+  display: flex;
+  gap: 21px;
+  margin-bottom: 53px;
 }
 
-.pic:hover {
+.trvPic {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.trvPic>img {
+  width: 247px;
+  height: 320px;
+}
+
+.trvpic:hover {
   cursor: pointer;
 }
 
-
-/*songList*/
-.songList {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-.listFrame {
-  width: 983px;
-  height: 60px;
-  margin-top: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 180px;
-  margin-bottom: 15px;
-}
-
-.rect {
-  border-radius: 500px;
-  background-color: #D9D9D9;
-  width: 50px;
-  height: 50px;
-}
-
-.rect:hover {
-  cursor: pointer;
-}
-
-.songtitle {
-  color: #737373;
-  font-size: 20px;
-  font-family: Pretendard;
+.picTitle {
+  margin-top: 32px;
+  color: #333;
+  font-size: 16px;
+  font-family: "Noto Sans KR";
   font-style: normal;
-  font-weight: 700;
-  line-height: 21px;
-  text-align: center;
-  width: 200px;
-  height: 25px;
+  font-weight: 400;
+  line-height: 23.2px;
 }
 
-.songtitle:hover {
-  cursor: pointer;
-}
-
-.singer {
-  color: #737373;
-  font-size: 20px;
-  font-family: Pretendard;
+.author {
+  margin-top: 7px;
+  color: #B5B5B5;
+  font-size: 16px;
+  font-family: "Noto Sans KR";
   font-style: normal;
-  font-weight: 700;
-  line-height: 21px;
-  width: 180px;
-  height: 25px;
-  text-align: center;
+  font-weight: 400;
+  line-height: 24px;
 }
 
-.singer:hover {
+.author:hover {
   cursor: pointer;
 }
 
-.like {
-  width: 24px;
-  height: 24px;
-  height: 18.350000381469727px;
-}
-
-.like:hover {
-  cursor: pointer;
+.explain {
+  margin-top: 14px;
 }
 
 /*footer*/
-
 .footer {
   align-items: center;
   justify-content: center;
   display: flex;
-  margin-top: 168px;
+  margin-top: 129px;
   margin-bottom: 42px;
   flex-direction: row;
   border-top: 1px solid #B5B5B5;
@@ -386,6 +255,14 @@ nav div {
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+}
+
+.test {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footerContainer1 {
@@ -445,10 +322,24 @@ nav div {
   gap: 12px;
   margin-left: 452px;
   text-align: right;
+
 }
 
-#music {
-  color: #809675;
+/*button*/
+
+.button {
+
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 53px;
+}
+
+.button div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* 버튼 스타일링 */
@@ -545,4 +436,90 @@ input[type="radio"]:checked {
 label {
   display: inline-block;
   vertical-align: middle;
+}
+
+
+#spring {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  color: #333;
+  width: 112px;
+  height: 40px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 22px;
+  background-color: #FCFAF6;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#spring:hover {
+  background-color: #FAC8C8;
+  color: #FFF;
+  cursor: pointer;
+}
+
+
+#summer {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  color: #333;
+  width: 112px;
+  height: 40px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 22px;
+  background-color: #FCFAF6;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#summer:hover {
+  background-color: #C4E4E9;
+  color: #FFF;
+  cursor: pointer;
+}
+
+#autumn {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  color: #333;
+  width: 112px;
+  height: 40px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 22px;
+  background-color: #FCFAF6;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#autumn:hover {
+  background-color: #DCC8AA;
+  color: #FFF;
+  cursor: pointer;
+}
+
+#winter {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  color: #333;
+  width: 112px;
+  height: 40px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 22px;
+  background-color: #FCFAF6;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#winter:hover {
+  background-color: #CBC6CF;
+  color: #FFF;
+  cursor: pointer;
+}
+
+#save {
+  color: #809675;
 }

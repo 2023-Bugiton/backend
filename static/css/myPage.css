@@ -115,16 +115,17 @@ nav div {
 }
 
 #spring {
-  font-family: Noto Sans;
+  font-family: "Noto Sans KR";
   font-style: normal;
   color: #333;
   width: 112px;
-  height: 30px;
+  height: 40px;
   margin: 10px;
   padding: 10px;
   border-radius: 22px;
   background-color: #FCFAF6;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 #spring:hover {
@@ -135,16 +136,17 @@ nav div {
 
 
 #summer {
-  font-family: Noto Sans;
+  font-family: "Noto Sans KR";
   font-style: normal;
   color: #333;
   width: 112px;
-  height: 28px;
+  height: 40px;
   margin: 10px;
   padding: 10px;
   border-radius: 22px;
   background-color: #FCFAF6;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 #summer:hover {
@@ -154,16 +156,17 @@ nav div {
 }
 
 #autumn {
-  font-family: Noto Sans;
+  font-family: "Noto Sans KR";
   font-style: normal;
   color: #333;
   width: 112px;
-  height: 28px;
+  height: 40px;
   margin: 10px;
   padding: 10px;
   border-radius: 22px;
   background-color: #FCFAF6;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 #autumn:hover {
@@ -173,16 +176,17 @@ nav div {
 }
 
 #winter {
-  font-family: Noto Sans;
+  font-family: "Noto Sans KR";
   font-style: normal;
   color: #333;
   width: 112px;
-  height: 28px;
+  height: 40px;
   margin: 10px;
   padding: 10px;
   border-radius: 22px;
   background-color: #FCFAF6;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 #winter:hover {
@@ -230,6 +234,101 @@ nav div {
 
 .buttons {
   display: flex;
+}
+
+/* 버튼 스타일링 */
+.button label {
+  display: inline-block;
+  position: relative;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* 버튼 내 텍스트 스타일링 */
+.button label div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+}
+
+.button input[id="spring"]:checked+div {
+  background-color: #FAC8C8;
+  color: #FFF;
+  width: 112px;
+  height: 40px;
+  border-radius: 22px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+.button input[id="summer"]:checked+div {
+  background-color: #C4E4E9;
+  color: #FFF;
+  width: 112px;
+  height: 40px;
+  border-radius: 22px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+.button input[id="autumn"]:checked+div {
+  background-color: #DCC8AA;
+  color: #FFF;
+  width: 112px;
+  height: 40px;
+  border-radius: 22px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+.button input[id="winter"]:checked+div {
+  background-color: #CBC6CF;
+  color: #FFF;
+  width: 112px;
+  height: 40px;
+  border-radius: 22px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  /* 웹킷 브라우저에 기본 스타일 제거 */
+  -moz-appearance: none;
+  /* 파이어폭스 브라우저에 기본 스타일 제거 */
+  appearance: none;
+  /* 브라우저에 기본 스타일 제거 */
+  width: 112px;
+  /* 버튼의 가로 크기 조정 */
+  height: 40px;
+  /* 버튼의 세로 크기 조정 */
+  border-radius: 22px;
+  /* 라디오 버튼을 둥근 형태로 만들기 */
+  border: 2px solid #FCFAF6;
+  /* 테두리 스타일 설정 */
+  outline: none;
+  /* 포커스 시 기본 외곽선 제거 */
+  cursor: pointer;
+  /* 커서 스타일 설정 */
+}
+
+/* 라디오 버튼 선택 상태 스타일링 */
+input[type="radio"]:checked {
+  background-color: #000;
+  /* 선택된 버튼의 배경색 설정 */
+}
+
+/* 라디오 버튼과 라벨의 정렬 */
+label {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .myName {
@@ -453,6 +552,16 @@ nav div {
 }
 
 /*myPics*/
+
+
+.test {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+  flex-direction: column;
+  align-items: center;
+}
+
 .myPics {
   display: flex;
   justify-content: center;
@@ -476,6 +585,7 @@ nav div {
 .trvPic>img {
   width: 247px;
   height: 320px;
+  object-fit :contain;
 }
 
 .trvpic:hover {
@@ -585,5 +695,4 @@ nav div {
   gap: 12px;
   margin-left: 452px;
   text-align: right;
-  
 }
