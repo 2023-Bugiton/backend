@@ -201,7 +201,16 @@ def myPage_season_view(request):
         }
     return render(request, 'posts/myPage_season.html', context)
 
+def myPage_sort_view(request):
+    if request.method == 'GET':
+        sort = request.GET.get('sort', '')
+        post_list = Post.objects.filter(user=request.user)
+        print(sort)
+        if sort == 'recent':
+            post_list = post_list.order_by('-created_at')  # 최신순 정렬
 
+        context = {'post_list': post_list}
+        return render(request, 'posts/myPage_season.html', context)
 
 @login_required
 def post_save_view(request, id):

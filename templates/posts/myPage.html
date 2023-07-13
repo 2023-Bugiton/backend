@@ -134,10 +134,10 @@
     </div>
 
     <form class="options" id="myForm" action="">
-        <select id="itemSelect" onchange="moveurl(this.value);">
-            <option value="">서랍 저장순</option>
-            <option value="?order=recent">최신순</option>
-            <option value="?order=popular">인기순</option>
+        <select id="itemSelect">
+            <option value="">=정렬=</option>
+            <option value="recent">최신순</option>
+            <option value="">서랍저장순</option>
         </select>
     </form>
     <div class="test">
@@ -176,6 +176,12 @@
             var selectedSeason = $('input[name="season"]:checked').val();
             getPostsBySeason(selectedSeason);
         });
+
+        $('#itemSelect').change(function () {
+            var sortValue = $(this).val();
+            getSortedPosts(sortValue);
+            console.log(sortValue)
+        });
     });
 
     function getPostsBySeason(season) {
@@ -189,6 +195,21 @@
                 $('.myPics').html(response);
             },
             error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+    function getSortedPosts(sortValue) {
+        
+        $.ajax({
+            url: '/posts/myPage/sort',  // 정렬된 게시물을 가져오는 URL
+            method: 'GET',
+            data: { 'sort': sortValue },  // 요청 데이터
+            dataType: 'html',
+            success: function(response) {
+                $('.myPics').html(response);
+            },
+            error: function(xhr, status, error) {
                 console.error(error);
             }
         });
