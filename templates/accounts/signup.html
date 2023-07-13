@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<script type="text/javascript" src="{% static 'js/signup.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% csrf_token %}
+<!-- <meta name="_csrf_header" th:content="${_csrf.headerName}">
+<meta name="_csrf" th:content="${_csrf.token}"> -->
+
+{% endblock %}
+
 {% block title %}회원가입{% endblock %}
 
 {% block content %}
-<h1>회원가입</h1>
+<!-- <h1>회원가입</h1>
 <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div>
@@ -11,5 +22,61 @@
     <div>
         <input type="submit" name="" id="">
     </div>
+</form> -->
+<form action="" id="signup-form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <section class="container">
+        <div class="main-holder">
+            <div class="login-header">회원가입</div>
+            <div class="nickname">아이디</div>
+            <!-- <input type="text" name="NICKNAME" placeholder="닉네임을 입력해주세요"> -->
+            {{ form.username }}
+            <button id="nickname-button" type="button" name="NICKNAME-CK">중복
+                확인</button>
+            <div class="email">이메일</div>
+            <!-- <input type="text" name="EM" placeholder="이메일을 입력해주세요"> -->
+            {{ form.email }}
+            <div class="pw">비밀번호</div>
+            <!-- <input type="text" name="PW" placeholder="비밀번호를 입력해주세요"> -->
+            {{ form.password1 }}
+            <div class="pw-check">비밀번호 확인</div>
+            <!-- <input type="text" name="PW-CK" placeholder="비밀번호를 입력해주세요"> -->
+            {{ form.password2 }}
+            <div id="username-error-message" class="error-message"></div>
+            <button id="register-button" type="submit" name="REGISTER" onClick="validateForm()">회원가입</button>
+        </div>
+    </section>
 </form>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#nickname-button').click(function () {
+            var username = $('#id_username').val();
+
+
+
+            // Ajax 요청
+            $.ajax({
+                url: '/accounts/check-username/',  // 중복 확인을 수행할 URL
+                method: 'POST',
+                data: { 'username': username },  // 요청 데이터
+                dataType: 'json',
+                // beforeSend: function(xhr){
+                //     xhr.setRequestHeader(header, token);
+                // },
+                success: function (response) {
+                    if (response.is_taken) {
+                        alert('이미 사용 중인 아이디입니다.');
+                    } else {
+                        alert('사용할 수 있는 아이디입니다.');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
 {% endblock %}

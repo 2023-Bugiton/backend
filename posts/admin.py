@@ -4,7 +4,7 @@ from .models import Post
 # Register your models here.
 @admin.register(Post)
 class PostModelAdmin(admin.ModelAdmin):
-    list_display = ('id','location','cost', 'image','description','date','title','category','created_at',)
+    list_display = ('id','location','cost', 'image','description','date','title','category','created_at')
     list_filter = ('created_at',)
     search_fields = ('id',)
     search_help_text = '게시판 번호, 작성자 검색이 가능합니다.'

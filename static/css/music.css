@@ -1,35 +1,37 @@
-body{
+body {
   margin: 0;
   padding: 0;
 }
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 @font-face {
-    font-family: 'KyoboHandwriting2022khn';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KyoboHandwriting2022khn.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'KyoboHandwriting2022khn';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KyoboHandwriting2022khn.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
- a:link { 
+a:link {
   color: #737373;
   text-decoration: none;
 }
 
-  a { 
-  color: #737373; 
+a {
+  color: #737373;
   text-decoration: none;
-  color: inherit;}
+  color: inherit;
+}
 
-  a.green:hover{
-    color: #809675; 
-    text-decoration: none;
-  }
- 
- a{
-  text-decoration:none;
- }
+a.green:hover {
+  color: #809675;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
 
 
 /*nav*/
@@ -39,11 +41,12 @@ nav {
   height: 10vh;
   justify-content: center;
   align-items: center;
-  margin: 0 auto; /* 가운데 정렬을 위해 추가 */
+  margin: 0 auto;
+  /* 가운데 정렬을 위해 추가 */
   max-width: 100rem;
 }
 
-nav div{
+nav div {
   flex-grow: 0.3;
   display: flex;
   justify-content: center;
@@ -58,32 +61,32 @@ nav div{
   line-height: 24px;
 }
 
-.navContainer1 > div{
+.navContainer1>div {
   flex-grow: 0.3;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.navContainer1{
+.navContainer1 {
   margin: 0 auto;
   max-width: 80rem;
   justify-content: center;
 }
 
-.navContainer2{
+.navContainer2 {
   margin: 0 auto;
   max-width: 20rem;
 }
 
-.navContainer2 > div{
+.navContainer2>div {
   flex-grow: 0.03;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   align-items: center;
 }
 
-#navTitle{
+#navTitle {
   color: var(--main-bl, #737373);
   text-align: center;
   font-size: 32px;
@@ -93,21 +96,21 @@ nav div{
   line-height: 24px;
 }
 
-#navTitle:hover{
-  cursor:pointer;
+#navTitle:hover {
+  cursor: pointer;
   color: #737373;
 }
 
 
 /*pageTitle*/
 
-.pageTitle{
+.pageTitle {
   display: flex;
   width: 200px;
   height: 36px;
   justify-content: center;
   align-items: center;
-  margin: 0 auto; 
+  margin: 0 auto;
   max-width: 100rem;
   margin-top: 98px;
 
@@ -122,13 +125,13 @@ nav div{
 
 /*subTitle*/
 
-.subTitle{
+.subTitle {
   display: flex;
   width: 300px;
   height: 21px;
   justify-content: center;
   align-items: center;
-  margin: 0 auto; 
+  margin: 0 auto;
   max-width: 100rem;
   margin-top: 17px;
 
@@ -143,33 +146,35 @@ nav div{
 
 /*button*/
 
-.button{
-  
+.button {
+
   display: flex;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
-  margin-top:38;
+  margin-top: 38px;
 }
 
-.button div{
+.button div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 #spring {
-  font-family: Noto Sans;
+  font-family: "Noto Sans KR";
   font-style: normal;
   color: #333;
   width: 112px;
-  height:30px;
+  height: 40px;
   margin: 10px;
   padding: 10px;
-  border-radius:22px;
+  border-radius: 22px;
   background-color: #FCFAF6;
   text-align: center;
+  margin-bottom: 5px;
 }
+
 #spring:hover {
   background-color: #FAC8C8;
   color: #FFF;
@@ -177,54 +182,60 @@ nav div{
 }
 
 
-#summer{
-  font-family: Noto Sans;
+#summer {
+  font-family: "Noto Sans KR";
   font-style: normal;
   color: #333;
   width: 112px;
-  height:28px;
+  height: 40px;
   margin: 10px;
   padding: 10px;
-  border-radius:22px;
+  border-radius: 22px;
   background-color: #FCFAF6;
   text-align: center;
+  margin-bottom: 5px;
 }
+
 #summer:hover {
   background-color: #C4E4E9;
   color: #FFF;
   cursor: pointer;
 }
 
-#autumn{
-  font-family: Noto Sans;
+#autumn {
+  font-family: "Noto Sans KR";
   font-style: normal;
   color: #333;
   width: 112px;
-  height:28px;
+  height: 40px;
   margin: 10px;
   padding: 10px;
-  border-radius:22px;
+  border-radius: 22px;
   background-color: #FCFAF6;
   text-align: center;
+  margin-bottom: 5px;
 }
+
 #autumn:hover {
   background-color: #DCC8AA;
   color: #FFF;
   cursor: pointer;
 }
 
-#winter{
-  font-family: Noto Sans;
+#winter {
+  font-family: "Noto Sans KR";
   font-style: normal;
   color: #333;
   width: 112px;
-  height:28px;
+  height: 40px;
   margin: 10px;
   padding: 10px;
-  border-radius:22px;
+  border-radius: 22px;
   background-color: #FCFAF6;
   text-align: center;
+  margin-bottom: 5px;
 }
+
 #winter:hover {
   background-color: #CBC6CF;
   color: #FFF;
@@ -233,12 +244,13 @@ nav div{
 
 /*option*/
 
-.options{
+.options {
   margin-top: 16px;
   display: flex;
   align-items: center;
-  justify-content: center; /* 오른쪽 정렬로 수정 */
-  margin-left:730px;
+  justify-content: center;
+  /* 오른쪽 정렬로 수정 */
+  margin-left: 730px;
 
   color: #222;
   text-align: right;
@@ -256,7 +268,7 @@ nav div{
 .options select {
   border: none;
   background-color: transparent;
-  
+
 }
 
 .options select:focus {
@@ -266,98 +278,104 @@ nav div{
 
 
 /*album picture*/
-.albumPic{
+.albumPic {
   margin-top: 73px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
-  margin-bottom:80px;
+  margin-bottom: 80px;
 }
 
-.albumPic>img{
+.albumPic>img {
   width: 200px;
   height: 200px;
 }
 
-.pic:hover{
+.pic:hover {
   cursor: pointer;
 }
 
 
 /*songList*/
-.songList{
-  align-items:center;
-  justify-content:center;
-  display:flex;
+.songList {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
-.listFrame { 
-  width:983px;
-  height:60px;
+.listFrame {
+  width: 983px;
+  height: 60px;
   margin-top: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 180px; 
-  margin-bottom:15px;
-}
-.rect { 
-  border-radius:500px;
-  background-color:#D9D9D9;
-  width:50px;
-  height:50px;
-}
-.rect:hover{
-  cursor:pointer;
-}
-.songtitle { 
-  color: #737373;
-  font-size: 20px;
-  font-family: Pretendard;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 21px;
-  text-align:center;
-  width:200px;
-  height:25px;
-}
-.songtitle:hover{
-  cursor:pointer;
-}
-.singer { 
-  color: #737373;
-  font-size: 20px;
-  font-family: Pretendard;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 21px;
-  width:180px;
-  height:25px;
-  text-align:center;
-}
-.singer:hover{
-  cursor:pointer;
+  gap: 180px;
+  margin-bottom: 15px;
 }
 
-.like { 
+.rect {
+  border-radius: 500px;
+  background-color: #D9D9D9;
+  width: 50px;
+  height: 50px;
+}
+
+.rect:hover {
+  cursor: pointer;
+}
+
+.songtitle {
+  color: #737373;
+  font-size: 20px;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: center;
+  width: 200px;
+  height: 25px;
+}
+
+.songtitle:hover {
+  cursor: pointer;
+}
+
+.singer {
+  color: #737373;
+  font-size: 20px;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+  width: 180px;
+  height: 25px;
+  text-align: center;
+}
+
+.singer:hover {
+  cursor: pointer;
+}
+
+.like {
   width: 24px;
   height: 24px;
-  height:18.350000381469727px;
+  height: 18.350000381469727px;
 }
 
-.like:hover{
+.like:hover {
   cursor: pointer;
 }
 
 /*footer*/
 
-.footer{
-  align-items:center;
-  justify-content:center;
+.footer {
+  align-items: center;
+  justify-content: center;
   display: flex;
-  margin-top:168px;
-  margin-bottom:42px;
+  margin-top: 168px;
+  margin-bottom: 42px;
   flex-direction: row;
   border-top: 1px solid #B5B5B5;
 
@@ -369,18 +387,18 @@ nav div{
   line-height: 18px;
 }
 
-.footerContainer1{
+.footerContainer1 {
   justify-content: flex-start;
   margin-top: 45px;
 }
 
-.line{
+.line {
   margin-bottom: 45px;
 }
 
 
-.icon{
-  gap:12px;
+.icon {
+  gap: 12px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -391,44 +409,139 @@ nav div{
   cursor: pointer;
 }
 
-.inform1{
+.inform1 {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: 24px;
   flex-direction: row;
-  margin-bottom:12px;
+  margin-bottom: 12px;
 }
 
-.inform2{
-  margin-bottom:12px;
+.inform2 {
+  margin-bottom: 12px;
 }
 
-.point { 
-  background-color:rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
-  width:4px;
-  height:4px;
-  border-top-left-radius:9999px;
-  border-top-right-radius:9999px;
-  border-bottom-left-radius:9999px;
-  border-bottom-right-radius:9999px;
+.point {
+  background-color: rgba(115.00000074505806, 115.00000074505806, 115.00000074505806, 1);
+  width: 4px;
+  height: 4px;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
 }
 
-.footerContainer2{
+.footerContainer2 {
   margin-bottom: 0px;
 }
 
-.inform5{
+.inform5 {
   margin-bottom: 0px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap:12px;
+  gap: 12px;
   margin-left: 452px;
-  text-align:right;
-  margin-right: 
+  text-align: right;
 }
 
-#music{
-  color:#809675; 
- }
+#music {
+  color: #809675;
+}
+
+/* 버튼 스타일링 */
+.button label {
+  display: inline-block;
+  position: relative;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* 버튼 내 텍스트 스타일링 */
+.button label div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+}
+
+.button input[id="spring"]:checked+div {
+  background-color: #FAC8C8;
+  color: #FFF;
+  width: 112px;
+  height: 40px;
+  border-radius: 22px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+.button input[id="summer"]:checked+div {
+  background-color: #C4E4E9;
+  color: #FFF;
+  width: 112px;
+  height: 40px;
+  border-radius: 22px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+.button input[id="autumn"]:checked+div {
+  background-color: #DCC8AA;
+  color: #FFF;
+  width: 112px;
+  height: 40px;
+  border-radius: 22px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+.button input[id="winter"]:checked+div {
+  background-color: #CBC6CF;
+  color: #FFF;
+  width: 112px;
+  height: 40px;
+  border-radius: 22px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  /* 웹킷 브라우저에 기본 스타일 제거 */
+  -moz-appearance: none;
+  /* 파이어폭스 브라우저에 기본 스타일 제거 */
+  appearance: none;
+  /* 브라우저에 기본 스타일 제거 */
+  width: 112px;
+  /* 버튼의 가로 크기 조정 */
+  height: 40px;
+  /* 버튼의 세로 크기 조정 */
+  border-radius: 22px;
+  /* 라디오 버튼을 둥근 형태로 만들기 */
+  border: 2px solid #FCFAF6;
+  /* 테두리 스타일 설정 */
+  outline: none;
+  /* 포커스 시 기본 외곽선 제거 */
+  cursor: pointer;
+  /* 커서 스타일 설정 */
+}
+
+/* 라디오 버튼 선택 상태 스타일링 */
+input[type="radio"]:checked {
+  background-color: #000;
+  /* 선택된 버튼의 배경색 설정 */
+}
+
+/* 라디오 버튼과 라벨의 정렬 */
+label {
+  display: inline-block;
+  vertical-align: middle;
+}

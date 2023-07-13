@@ -13,7 +13,13 @@
 <section class="container">
     <div class="drawerContainer">
         <div class="content">
-            <div class="drawerName">지은의 서랍장</div>
+            <div class="drawerName">
+            {% if user.username %}
+                {{ user.username }}
+            {% else %}
+                나
+            {% endif %}
+            님의 서랍장</div>
             오늘도 한 칸씩 채워가는 나의 애프터트립<br>
             영원히 기억될 것 같던 순간도 시간이 지나면 조금씩 잊혀지기 마련이에요.<br>
             가장 생생한 나의 여행을 위해 오늘도 서랍 한 칸을 열어볼까요?<br>
@@ -28,10 +34,10 @@
         <div class="explain">
             <div class="buttons">
                 <div class="myName">
-                    {% if user.first_name %}
-                        {{ user.first_name }}
-                    {% else %}
+                    {% if user.username %}
                         {{ user.username }}
+                    {% else %}
+                        나
                     {% endif %}
                 </div>
                 <div class="miniIcon">
@@ -60,10 +66,30 @@
     <div class="picContainer2">
         <div class="pic2"><img src="{% static 'images/Rectangle 20.png' %}" alt=""></div>
         <div class="content2">
-            <div class="trv1">총 여행일 | <span class="hov">2,108</span>일</div>
-            <div class="trv2">국내 | <span class="hov">576</span>일</div>
-            <div class="trv3">국외 |<span class="hov"> 1,532</span>일</div>
-            <div class="trv4">서랍장 | <span class="hov">37</span>개</div>
+            <div class="trv1">총 여행일 | <span class="hov">
+            {% if date_sum %}
+                {{date_sum}}
+            {% else %}
+                    0
+            {% endif %}</span>일</div>
+            <div class="trv2">국내 | <span class="hov">
+            {% if domestic_total %}
+                {{domestic_total}}
+            {% else %}
+                    0
+            {% endif %}</span>일</div>
+            <div class="trv3">국외 |<span class="hov">
+            {% if international_total %}
+                {{international_total}}
+            {% else %}
+                    0
+            {% endif %}</span>일</div>
+            <div class="trv4">서랍장 | <span class="hov">
+                {% if post_count %}
+                    {{post_count}}
+                {% else %}
+                        0
+                {% endif %}</span>개</div>
         </div>
     </div>
     </div>

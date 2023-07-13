@@ -21,25 +21,29 @@
     <div class="subTitle">새로운 계절에 눈 뜨고 싶은 그대를 위하여</div>
 
     <div class="button">
-        <a href="#">
-            <div id="spring">Spring</div>
-        </a>
-        <a href="#">
-            <div id="summer">Summer</div>
-        </a>
-        <a href="#">
-            <div id="autumn">Autumn</div>
-        </a>
-        <a href="#">
-            <div id="winter">Winter</div>
-        </a>
+        <label for="spring">
+            <input type="radio" id="spring" name="season" value="spring"  onclick="redirectToPage('#')" >
+            <div>Spring</div>
+        </label>
+        <label for="summer">
+            <input type="radio" id="summer" name="season" value="summer"  onclick="redirectToPage('#')">
+            <div>Summer</div>
+        </label>
+        <label for="autumn">
+            <input type="radio" id="autumn" name="season" value="autumn"  onclick="redirectToPage('#')">
+            <div>Autumn</div>
+        </label>
+        <label for="winter">
+            <input type="radio" id="winter" name="season" value="winter"  onclick="redirectToPage('#')">
+            <div>Winter</div>
+        </label>
     </div>
 
     <form class="options" id="myForm" action="">
         <select id="itemSelect" onchange="moveurl(this.value);">
+            <option value=/musics?">-정렬-</option>
             <option value="/musics?order=popular">인기순</option>
             <option value="/musics?order=recent">최신순</option>
-            <option value="#">저장 많은 순</option>
         </select>
     </form>
     <div class="albumPic">
@@ -61,7 +65,16 @@
                 <img class="rect" src="{{ music.image.url }}" alt="">
                 <div class="songtitle">{{ music.title }}</div>
                 <div class="singer">{{ music.singer }}</div>
-                <div class="like"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></div>
+                {% if user.is_authenticated %}
+                    {% if music.is_liked %}
+                        <a href="{% url 'musics:music-like' music.id %}" class="like"><img src="{% static 'images/mdi_heart.png' %}" alt=""></a>
+                    {% else %}
+                        <a href="{% url 'musics:music-like' music.id %}" class="like"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></a>
+                    {% endif %}
+                {% else %}
+                    <a href="{% url 'accounts:login' %}"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></a>
+                {% endif %}
+                
             </div>
         </div>
         {% endfor %}

@@ -4,6 +4,10 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, CustomAuthForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
+from django.http import JsonResponse
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 # Create your views here.
 
 def signup_view(request):
@@ -57,3 +61,13 @@ def logout_view(request):
         logout(request)
     # 응답
     return redirect('index')
+
+
+def check_username(request):
+    if request.method == 'POST' and request.is_ajax():
+        username = request.POST.get('username', None)
+        data = {
+            'is_taken': User.objects.filter(username=username).exists()
+        }
+        
+        return JsonResponse(data)

@@ -1,0 +1,23 @@
+{% load static %}
+
+<!-- {% for post in post_list %} -->
+<a class="postFrame" href="{% url 'posts:post-detail' post.id %}">
+    <div class="frame">
+        <div class="pic">
+            {% if post.image %}
+            <img src="{{post.image.url}}" width="250" height="320" alt="카드이미지">
+            {% else %}
+            <img src="http://via.placeholder.com/300x300" width="250" height="320" alt="카드이미지">
+            {%endif%}
+        </div>
+        <div class="explain">
+            <div class="picEx">
+                <div class="picTitle">{{ post.title }}</div>
+                <div class="drawer"><img src="{% static 'images/Vector.png' %}" alt="">서랍 {{post.user.post_set.all.count}}</div>
+            </div>
+            <div class="author">{{ post.user }}</div>
+        </div>
+    </div>
+</a>
+<!-- {% endfor %} -->
+

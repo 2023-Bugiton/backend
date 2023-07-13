@@ -150,7 +150,7 @@ nav div {
     margin: 0 auto;
     align-items: center;
     justify-content: center;
-    margin-top: 38;
+    margin-top: 38px;
 }
 
 .button div {
@@ -159,17 +159,114 @@ nav div {
     align-items: center;
 }
 
+/* 버튼 스타일링 */
+.button label {
+    display: inline-block;
+    position: relative;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* 버튼 내 텍스트 스타일링 */
+.button label div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+}
+
+.button input[id="spring"]:checked+div {
+    background-color: #FAC8C8;
+    color: #FFF;
+    width: 112px;
+    height: 40px;
+    border-radius: 22px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+}
+
+.button input[id="summer"]:checked+div {
+    background-color: #C4E4E9;
+    color: #FFF;
+    width: 112px;
+    height: 40px;
+    border-radius: 22px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+}
+
+.button input[id="autumn"]:checked+div {
+    background-color: #DCC8AA;
+    color: #FFF;
+    width: 112px;
+    height: 40px;
+    border-radius: 22px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+}
+
+.button input[id="winter"]:checked+div {
+    background-color: #CBC6CF;
+    color: #FFF;
+    width: 112px;
+    height: 40px;
+    border-radius: 22px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+}
+
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    /* 웹킷 브라우저에 기본 스타일 제거 */
+    -moz-appearance: none;
+    /* 파이어폭스 브라우저에 기본 스타일 제거 */
+    appearance: none;
+    /* 브라우저에 기본 스타일 제거 */
+    width: 112px;
+    /* 버튼의 가로 크기 조정 */
+    height: 40px;
+    /* 버튼의 세로 크기 조정 */
+    border-radius: 22px;
+    /* 라디오 버튼을 둥근 형태로 만들기 */
+    border: 2px solid #FCFAF6;
+    /* 테두리 스타일 설정 */
+    outline: none;
+    /* 포커스 시 기본 외곽선 제거 */
+    cursor: pointer;
+    /* 커서 스타일 설정 */
+}
+
+/* 라디오 버튼 선택 상태 스타일링 */
+input[type="radio"]:checked {
+    background-color: #000;
+    /* 선택된 버튼의 배경색 설정 */
+}
+
+/* 라디오 버튼과 라벨의 정렬 */
+label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 #spring {
-    font-family: Noto Sans;
+    font-family: "Noto Sans KR";
     font-style: normal;
     color: #333;
     width: 112px;
-    height: 30px;
+    height: 40px;
     margin: 10px;
     padding: 10px;
     border-radius: 22px;
     background-color: #FCFAF6;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 #spring:hover {
@@ -180,16 +277,17 @@ nav div {
 
 
 #summer {
-    font-family: Noto Sans;
+    font-family: "Noto Sans KR";
     font-style: normal;
     color: #333;
     width: 112px;
-    height: 28px;
+    height: 40px;
     margin: 10px;
     padding: 10px;
     border-radius: 22px;
     background-color: #FCFAF6;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 #summer:hover {
@@ -199,16 +297,17 @@ nav div {
 }
 
 #autumn {
-    font-family: Noto Sans;
+    font-family: "Noto Sans KR";
     font-style: normal;
     color: #333;
     width: 112px;
-    height: 28px;
+    height: 40px;
     margin: 10px;
     padding: 10px;
     border-radius: 22px;
     background-color: #FCFAF6;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 #autumn:hover {
@@ -218,16 +317,17 @@ nav div {
 }
 
 #winter {
-    font-family: Noto Sans;
+    font-family: "Noto Sans KR";
     font-style: normal;
     color: #333;
     width: 112px;
-    height: 28px;
+    height: 40px;
     margin: 10px;
     padding: 10px;
     border-radius: 22px;
     background-color: #FCFAF6;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 #winter:hover {
@@ -243,17 +343,19 @@ nav div {
     height: 36px;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 32px auto 0px;
     max-width: 100rem;
-    margin-top: 32px;
-
-    color: #999;
+    color: rgb(153, 153, 153);
     text-align: center;
     font-size: 20px;
-    font-family: Noto Sans;
+    font-family: "Noto Sans KR";
     font-style: normal;
     font-weight: 400;
     line-height: 20.8px;
+}
+
+#login {
+    color: #809675;
 }
 
 /*subTitle2*/
@@ -270,7 +372,7 @@ nav div {
     color: #CCC;
     text-align: center;
     font-size: 13px;
-    font-family: Noto Sans;
+    font-family: "Noto Sans KR";
     font-style: normal;
     font-weight: 400;
     line-height: 20.02px;
@@ -341,7 +443,7 @@ nav div {
 .ex {
     color: #333;
     font-size: 16px;
-    font-family: Noto Sans;
+    font-family: "Noto Sans KR";
     font-style: normal;
     font-weight: 400;
     line-height: 23.2px;
@@ -353,7 +455,7 @@ nav div {
     color: #999;
     text-align: right;
     font-size: 13px;
-    font-family: Noto Sans;
+    font-family: "Noto Sans KR";
     font-style: normal;
     font-weight: 400;
     line-height: 17px;
@@ -377,7 +479,7 @@ nav div {
     margin-top: 7px;
     color: #B5B5B5;
     font-size: 16px;
-    font-family: Noto Sans;
+    font-family: "Noto Sans KR";
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
@@ -467,5 +569,4 @@ nav div {
     gap: 12px;
     margin-left: 452px;
     text-align: right;
-    
 }

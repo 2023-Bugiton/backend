@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     likeImages.forEach(function(likeImage) {
     likeImage.addEventListener('click', function() {
         if (likeImage.src.includes('heart.png')) {
-        likeImage.src = 'images/mdi_heart-outline.png';
+        likeImage.src = '/static/images/mdi_heart-outline.png';
         } else {
-        likeImage.src = 'images/mdi_heart.png';
+        likeImage.src = '/static/images/mdi_heart.png';
         }
     });
     });

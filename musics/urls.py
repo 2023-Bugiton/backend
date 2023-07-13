@@ -8,6 +8,8 @@ app_name='music' #html 에서 url을 name으로 설정할때 필요 posts:post-c
 
 urlpatterns=[
     path('', music_list_view, name='music-list'),
-    path('<int:music_pk>/likes/', music_like_view, name='music-like'),
+    path('<int:id>/likes/', music_like_view, name='music-like'),
+    
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

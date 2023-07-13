@@ -15,7 +15,9 @@ class Post(models.Model):
     date = models.IntegerField(verbose_name='여행일',blank=True,null=True)
     title = models.CharField(max_length=100, verbose_name='제목')
     # like = models.IntegerField(verbose_name='좋아요', default=0)
-    category = models.IntegerField(verbose_name='계절',blank=True, null=True)
+    where = models.IntegerField(verbose_name='국내 국외', null=True, default=0)
+    category = models.IntegerField(verbose_name='계절',blank=True)
     user= models.ForeignKey(to=User, on_delete=models.CASCADE,null=True, blank=False)
     class Meta:
         db_table = 'post'
+
