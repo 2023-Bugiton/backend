@@ -1,6 +1,47 @@
 {% extends 'base.html' %}
-{%block title%}글 상세{%endblock %} 
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+
+{%block title%}서랍 생성{%endblock %}
+
 {% block content %}
-<h1>Post 상세 화면</h1>
-{% include 'mixin/posts/post_card.html' with detail=True %}
+
+<section class="container">
+    <div class="pageTitle">{{ post.title }}</div>
+    <div class="subTitle">{{ post.location }}
+        <br>{{ post.start }} 부터 {{ post.end }} (총 {{ date }}박 {{ post.date }}일)
+        <br>{{ cost }}원
+    </div>
+
+    <div class="button">
+        {% if post.category == 0 %}
+            <div id="spring">Spring</div>
+            </div>
+        {% elif post.category == 1 %}
+        <div id="summer">Summer</div>
+            </div>
+        {% elif post.category == 2 %}
+            <div id="autumn">Autumn</div>
+            </div>
+        {% else %}
+            <div id="winter">Winter</div>
+            </div>
+        {% endif %}
+
+    <div class="pic">
+        <img src="{{ post.image.url }}" alt="">
+        <div class="content">
+            <div class="author">by {{ post.user }}</div>
+            <a href="/myPage/index.html"><div class="vecIcon"><img src="{% static 'images/Vector.png' %}" alt=""></div></a>
+        </div>
+    </div>
+
+    <div class="diary">
+        {{ post.description }}
+    </div>
+</section>
+
 {% endblock %}

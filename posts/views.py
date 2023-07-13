@@ -86,6 +86,9 @@ def post_create_form_view(request):
         month1 = int(request.POST.get('month1', False))
         day1 = int(request.POST.get('day1', False))
 
+
+        start = datetime(year1, month1,  day1).strftime("%Y년 %m월 %d일")
+        end = datetime(year2, month2,  day2).strftime("%Y년 %m월 %d일")
         
         dateDiff = datetime(year2, month2,  day2) - datetime(year1, month1, day1)
         
@@ -96,12 +99,14 @@ def post_create_form_view(request):
             Post.objects.create(
                 title=form.cleaned_data['title'],
                 location=form.cleaned_data['location'],
-                date=dateDiff.days,
+                date = dateDiff.days,
                 cost=form.cleaned_data['cost'],
                 category=int(request.POST.get('season', 0)),
                 image=form.cleaned_data['image'],
                 description=form.cleaned_data['description'],
                 where = result,
+                start = start,
+                end = end,
                 user=request.user
             )
         else: #유효성 검사 false
@@ -120,8 +125,14 @@ def post_detail_view(request, id):
             post = Post.objects.get(id=id)
         except Post.DoesNotExist:
             return redirect('index')
+        
+        cost = format(post.cost, ',d')
+        
+        date = post.date - 1
         context = {
-            'post':post
+            'post':post,
+            'date' : date,
+            'cost' : cost,
         }
         return render(request, 'posts/post_detail.html',context)
     else:
