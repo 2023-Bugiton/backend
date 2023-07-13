@@ -189,6 +189,18 @@ def mySave_season_view(request):
         }
     return render(request, 'posts/mySave_season.html', context)
 
+def myPage_season_view(request):
+    season = int(request.GET.get('season'))
+    # 해당 시즌에 대한 게시물을 가져옴
+    
+    post_list = Post.objects.filter(user=request.user, category=season)
+    print(post_list)
+
+    context = {
+        'post_list': post_list
+        }
+    return render(request, 'posts/myPage_season.html', context)
+
 
 
 @login_required

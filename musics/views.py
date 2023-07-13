@@ -5,7 +5,7 @@ from musics.models import Music, Favorite
 # Create your views here.
 def music_list_view(request):
 
-    music_title_list = Music.objects.all()[:4]
+    music_title_list = Music.objects.all().order_by('-like')[:4]
     #perfume_list = Perfume.objects.filter(user_id = request.user)
     
     if request.GET.get('order') == 'recent':        
@@ -56,7 +56,7 @@ def music_like_view(request, id):
     return redirect('accouts:login')
 
 def music_season_view(request):
-    music_title_list = Music.objects.all()[:4]
+    music_title_list = Music.objects.all().order_by('-like')[:4]
     season = int(request.GET.get('season'))
     # 해당 시즌에 대한 게시물을 가져옴
     music_list = Music.objects.filter(category=season)
