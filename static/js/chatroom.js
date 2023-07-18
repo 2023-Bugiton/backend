@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatroomMessages = document.getElementById('chatroom-messages');
 
     const roomName = '{{ chatroom.name }}';
+    
     const chatSocket = new WebSocket(
-        'ws://' + window.location.host +
-        '/ws/chat/' + roomName + '/');
+        'ws://' + window.location.host + '/ws/chat/' + roomName + '/'
+    );
 
     chatSocket.onmessage = function (e) {
         const data = JSON.parse(e.data);
         const message = data['message'];
-        const sender = data['sender'];
 
-        chatroomMessages.innerHTML += '<p><strong>' + sender + ':</strong> ' + message + '</p>';
+        chatroomMessages.innerHTML += '<p>' + message + '</p>';
     };
 
     chatSocket.onclose = function (e) {

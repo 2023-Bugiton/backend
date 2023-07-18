@@ -120,7 +120,7 @@ def post_create_form_view(request):
         return redirect('index')
     
 def post_detail_view(request, id):
-    if request.user.is_authenticated: 
+    
         try:
             post = Post.objects.get(id=id)
         except Post.DoesNotExist:
@@ -135,8 +135,7 @@ def post_detail_view(request, id):
             'cost' : cost,
         }
         return render(request, 'posts/post_detail.html',context)
-    else:
-        return redirect('accounts:login')
+    
     
 def post_delete_view(request, id):
     post = get_object_or_404(Post, id=id)

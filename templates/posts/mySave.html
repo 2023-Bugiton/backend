@@ -28,6 +28,10 @@
 </div>
 
 <form id="season-form" class="button">
+    <label for="all">
+        <input type="radio" id="all" name="season" value="all">
+        <div>전체보기</div>
+    </label>
     <label for="spring">
         <input type="radio" id="spring" name="season" value=0>
         <div>Spring</div>
@@ -80,7 +84,10 @@
         $('#season-form input').change(function () {
             
             var selectedSeason = $('input[name="season"]:checked').val();
-            getPostsBySeason(selectedSeason);
+            if(selectedSeason != "all")
+                getPostsBySeason(selectedSeason);
+            else
+                location.reload()
         });
     });
 

@@ -36,9 +36,9 @@
         <div class="content">
             <div class="author">by {{ post.user }}</div>
             {% if user.is_authenticated %}
-                    <a href="{% url 'posts:post-save' post.id %}"><div class="vecIcon"><img src="{% static 'images/Vector.png' %}" alt=""></div></a>
+                    <a href="{% url 'posts:post-save' post.id %}" onclick="alert('보관함에 저장되었습니다!')"><div class="vecIcon"><img src="{% static 'images/Vector.png' %}" alt=""></div></a>
             {% else %}
-                    <a href="{% url 'accounts:login' %}"><img src="{% static 'images/mdi_heart-outline.png' %}" alt=""></a>
+                    <a href="{% url 'accounts:login' %}"><img src="{% static 'images/Vector.png' %}" alt=""></a>
             {% endif %}
         </div>
     </div>

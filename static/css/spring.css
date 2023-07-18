@@ -337,9 +337,9 @@ label {
 }
 
 /*pageTitle2*/
-.pageTitle2{
+.pageTitle2 {
     display: flex;
-    width: 200px;
+    width: 330px;
     height: 36px;
     justify-content: center;
     align-items: center;
@@ -354,8 +354,8 @@ label {
     line-height: 20.8px;
 }
 
-#city{
-    color:#809675; 
+#city {
+    color: #809675;
 }
 
 #login {
@@ -365,7 +365,7 @@ label {
 /*subTitle2*/
 .subTitle2 {
     display: flex;
-    width: 431px;
+    width: 475px;
     height: 101px;
     justify-content: center;
     align-items: center;
@@ -443,7 +443,7 @@ label {
 .myPics>img {
     width: 247px;
     height: 320px;
-    object-fit :contain;
+    object-fit: contain;
 }
 
 .pic:hover {
@@ -579,4 +579,35 @@ label {
     gap: 12px;
     margin-left: 452px;
     text-align: right;
+}
+
+.button input[id="all"]:checked+div {
+    background-color: #8f8f8f;
+    color: #FFF;
+    width: 112px;
+    height: 40px;
+    border-radius: 22px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+}
+
+#all {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    color: #333;
+    width: 112px;
+    height: 40px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 22px;
+    background-color: #FCFAF6;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#all:hover {
+    background-color: #8f8f8f;
+    color: #FFF;
+    cursor: pointer;
 }

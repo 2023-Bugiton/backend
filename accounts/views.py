@@ -63,11 +63,13 @@ def logout_view(request):
     return redirect('index')
 
 
-def check_username(request):
-    if request.method == 'POST' and request.is_ajax():
-        username = request.POST.get('username', None)
-        data = {
-            'is_taken': User.objects.filter(username=username).exists()
-        }
-        
-        return JsonResponse(data)
+def check_username_view(request):
+    if request.method == 'GET':
+        username = request.GET.get('username')
+
+        # 아이디 중복 확인 로직을 구현
+        is_taken = User.objects.filter(username=username).exists()
+        print(is_taken)
+        return JsonResponse({'is_taken': is_taken})
+    else:
+        return JsonResponse({'error': '잘못된 요청입니다.'})

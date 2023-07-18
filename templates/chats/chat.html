@@ -5,23 +5,5 @@
 {% endblock link %} -->
 
 {% block content %}
-    <div class="md:container md:mx-auto mt-16 h-full flex justify-around items-center">
-        <div class="chat-content">
-            <div>
-                    <p id="chatroom-list">Chat room list</p>
-                {% if chat_info == None %}
-                    <p>참여중인 채팅방이 없습니다</p>
-                {% else %}
-                    </div>
-                    <div>
-                        {% for key, value in chat_info.items %}
-                            <a href="/chat/{{ key }}">
-                                <div class="chat-room-a">{{ value.0 }} ❤ {{ value.1 }} 채팅방</div>
-                            </a>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-
-        </div>
-    </div>
+    
 {% endblock %}

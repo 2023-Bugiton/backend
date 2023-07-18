@@ -29,7 +29,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls',namespace='accounts')),
     path('perfumes/', include('perfumes.urls', namespace='perfumes')),
     path('musics/', include('musics.urls', namespace='musics')),
-    path('chats/', include('chats.urls', namespace='chats')),
+    
 ]
 
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

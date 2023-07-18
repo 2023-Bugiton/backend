@@ -546,3 +546,33 @@ label {
   display: inline-block;
   vertical-align: middle;
 }
+
+.button input[id="all"]:checked + div {
+  background-color: #8f8f8f;
+  color: #FFF;
+  width: 112px;
+    height:40px;
+    border-radius:22px;
+    text-align: center;
+    vertical-align: middle;
+    line-height:35px;
+}
+
+#all {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  color: #333;
+  width: 112px;
+  height:40px;
+  margin: 10px;
+  padding: 10px;
+  border-radius:22px;
+  background-color: #FCFAF6;
+  text-align: center;
+  margin-bottom:5px;
+}
+#all:hover {
+  background-color:  #8f8f8f;
+  color: #FFF;
+  cursor: pointer;
+}

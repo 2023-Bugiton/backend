@@ -21,6 +21,10 @@
     <div class="subTitle">새로운 계절에 눈 뜨고 싶은 그대를 위하여</div>
 
     <form id="season-form" class="button">
+        <label for="all">
+            <input type="radio" id="all" name="season" value="all">
+            <div>전체보기</div>
+        </label>
         <label for="spring">
             <input type="radio" id="spring" name="season" value=0>
             <div>Spring</div>
@@ -48,7 +52,7 @@
     </form>
     <div class="albumPic">
         {% for music in music_title_list %}
-        <div class="pic"><img src="{{ music.image.url }}" alt="사진1"></div>
+        <div class="pic"><img src="{{ music.image.url }}" height="200px" width="200px" alt="사진1"></div>
         {% endfor %}
     </div>
 
@@ -87,7 +91,10 @@
         $('#season-form input').change(function () {
             
             var selectedSeason = $('input[name="season"]:checked').val();
-            getPostsBySeason(selectedSeason);
+            if(selectedSeason != "all")
+                getPostsBySeason(selectedSeason);
+            else
+                location.reload()
         });
     });
 
