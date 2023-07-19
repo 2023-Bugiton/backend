@@ -27,8 +27,8 @@ source venv/bin/activate
 7. pip install -r requirements.txt 를 터미널 창에서 실행한다.
 
 <br><br>
-8번 이후부터 mac일 경우 python 대신 python3로 쓴다.
-8. python manage.py makemigrations
-9. python manage.py migrate
-10. python manage.py migrate --run-syncdb
-11. 서버 실행 python manage.py runserver
+8번 이후부터 mac일 경우 python 대신 python3로 쓴다.<br>
+8. python manage.py makemigrations<br>
+9. python manage.py migrate<br>
+10. python manage.py migrate --run-syncdb<br>
+11. 서버 실행 python manage.py runserver<br>
